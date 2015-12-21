@@ -158,18 +158,18 @@ $html='
     </page_footer>
     
 <style>
-span{
+span {
     display:inline-block;
     padding:10px;
 }
-h1{
+h1 {
     font-size:20px;
 }
-.spacer{
+.spacer {
     display:inline-block;
     height:1px;
 }
-.div{
+.div {
     color: #000;
     font-family: "NombreFont";
     font-size:12px;
@@ -181,36 +181,37 @@ h1{
     color:#C00;
     src:url("fonts/Pacifico.ttf") format("truetype");
 }
-.cursiva
-{
+.cursiva {
 font-family: "Pacifico", sans-serif;
 }
 </style>
+
+<!-- header -->
 <table style="width:100%; text-align:center;" cellpadding="0" cellspacing="0">
-        <tr>
-        <td style="width:25%; vertical-align:middle; border-bottom:3px solid #78343B;">
-                <img src="../img/logo.png" style="width:95%;" />
-        </td>
-            <td style="width:72%; text-align:left; padding-bottom:2mm; border-bottom:3px solid #78343B;">
-            </td>
-        </tr>
-        </table>
-        <br/>
-        <table style="width:100%;" cellpadding="0" cellspacing="0">
-        <tr>
-            <td style="width:85%; text-align:left;"></td>
-            <td style="width:20%; text-align:justify;">'.varFechaAbr($fecha).'</td>
-        </tr>
-    </table>
-    <br/>
-    <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%; text-align:left;">
-                Estimad@: <strong>'. $cliente.'</strong>
-            </td>
-        </tr>        
-    </table>    
-    <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
+    <tr>
+        <td style="width:25%; vertical-align:middle; border-bottom:3px solid #78343B;"><img src="../img/logo.png" style="width:95%;" /></td>
+        <td style="width:72%; text-align:left; padding-bottom:2mm; border-bottom:3px solid #78343B;"></td>
+    </tr>
+</table><!-- Fin header -->
+<br/>
+
+<!-- Fecha -->
+<table style="width:100%;" cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="width:85%; text-align:left;"></td>
+        <td style="width:20%; text-align:justify;">'.varFechaAbr($fecha).'</td>
+    </tr>
+</table><!-- Fin fecha -->
+<br/>
+
+<!-- Body ... intro -->
+<table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
+    <tr>
+        <td style="width:100%; text-align:left;">Estimad@: <strong>'. $cliente.'</strong></td>
+    </tr>        
+</table><!-- intro -->
+
+<table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
             <td style="width:100%;">
                 <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
