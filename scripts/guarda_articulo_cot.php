@@ -8,29 +8,30 @@ $total=$cant*$precio;
 $cot=$_POST["id_cotizacion"]; //cotizacion
 $art=$_POST["id_articulo"]; //articulo id
 $paq=$_POST["id_paquete"]; //paquete id
+$cpto=$_POST["id_concepto"]; //id concepto
 try{
 	$bd=new PDO($dsnw, $userw, $passw, $optPDO);
 	
 	$sqlBuscar="";
 	if($art!=""){//si es articulo
 		if($id_item!=""){//si ya está guardado previamente
-			$sql="UPDATE cotizaciones_articulos SET id_cotizacion=$cot, id_articulo=$art, cantidad=$cant, precio=$precio, total=$total WHERE id_item=$id_item;";
+			$sql="UPDATE cotizaciones_articulos SET id_cotizacion=$cot, id_articulo=$art, cantidad=$cant, precio=$precio, total=$total, id_concepto=$cpto WHERE id_item=$id_item;";
 			$r["info"]="Modificacion al <strong>articulo</strong> realizada exitosamente";
 		}else{//registro nuevo
 			$sql="INSERT INTO 
-				cotizaciones_articulos (id_cotizacion, id_articulo, cantidad, precio, total)
-			VALUES ($cot, $art, $cant, $precio, $total);";
+				cotizaciones_articulos (id_cotizacion, id_articulo, cantidad, precio, total, id_concepto)
+			VALUES ($cot, $art, $cant, $precio, $total,$cpto);";
 			$sqlBuscar="SELECT id_item FROM cotizaciones_articulos WHERE id_cotizacion=$cot AND id_articulo=$art AND total=$total LIMIT 1;";
 			$r["info"]="<strong>Articulo</strong> guardado exitosamente";
 		}
 	}else if($paq!=""){//si es paquete
 		if($id_item!=""){//si ya está guardado previamente
-			$sql="UPDATE cotizaciones_articulos SET id_cotizacion=$cot, id_paquete=$paq, cantidad=$cant, precio=$precio, total=$total WHERE id_item=$id_item;";
+			$sql="UPDATE cotizaciones_articulos SET id_cotizacion=$cot, id_paquete=$paq, cantidad=$cant, precio=$precio, total=$total, id_concepto=$cpto WHERE id_item=$id_item;";
 			$r["info"]="Modificación al <strong>paquete</strong> realizada exitosamente";
 		}else{//registro nuevo
 			$sql="INSERT INTO 
-				cotizaciones_articulos (id_cotizacion, id_paquete, cantidad, precio, total)
-			VALUES ($cot, $paq, $cant, $precio, $total);";
+				cotizaciones_articulos (id_cotizacion, id_paquete, cantidad, precio, total, id_concepto)
+			VALUES ($cot, $paq, $cant, $precio, $total, $cpto);";
 			$sqlBuscar="SELECT id_item FROM cotizaciones_articulos WHERE id_cotizacion=$cot AND id_paquete=$paq AND total=$total LIMIT 1;";
 			$r["info"]="<strong>Paquete</strong> guardado exitosamente";
 		}

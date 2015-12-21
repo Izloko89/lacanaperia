@@ -138,19 +138,7 @@ table{
 				 <input type="text" name="clave" id="clave" class="clave label clave_cotizacion requerido mayuscula text_corto" data-nueva="<?php nuevaClaveCotizar(); ?>" value="<?php nuevaClaveCotizar(); ?>" />
 			<?php } ?>
           </div>
-        <!-- <div class="campo_form celda fondo_azul" align="center">
-        	<label>Salón</label><input class="eventosalon salonr" id="eventocheck" type="radio" name="quitar" value="salon" checked />
-            <label>Evento</label><input class="eventosalon eventor" type="radio" name="quitar" value="evento" />
-            <input type="hidden" class="eventosalon_h" name="eventosalon" />
-        </div>
-        <div class="campo_form salones celda" style="width:292px;">
-			<label>Salones</label>
-			<select name="salon" id="salon" class="salon">
-            	<option selected disabled>Elige un salón</option>
-            	<?php salonesOpt();	?>
-            </select>
-		</div> -->
-		<!--- Para poner los salones quitar el style del div de abajo -->
+        
         <div class="campo_form celda" style="text-align: right; padding-right: 20px;">
 			<label>Tipo de evento</label>
 			<select id="id_tipo" name="id_tipo" class="id_tipo">
@@ -171,7 +159,7 @@ table{
           </div>
           <div class="campo_form">
             <label style="width:120px;">Direccion del Evento</label>
-			<input type="text" id="dirEvento" class="text_largo dirEvento"/>
+			<input type="text" id="dirEvento" name="dirEvento" class="text_largo dirEvento"/>
           </div>
           <div class="campo_form">
             <label style="width:120px;">Telefono contacto</label>
@@ -179,7 +167,7 @@ table{
           </div>
           <div class="campo_form" align="left">
             <label style="width:120px;">No. de Invitados</label>
-			<input type="text" id="noinvitados" class="text_corto noinvitados"/>
+			<input type="text" id="noinvitados" name="noinvitados"class="text_corto noinvitados"/>
           </div>
 		</div>
         <div class="celda" style="">
@@ -204,7 +192,7 @@ table{
 	  </div>
         <div align="right">
             <input type="button" class="modificar" value="MODIFICAR" data-wrap="#hacer" style="display:none;" />
-            <input type="button" id="guardar" style="padding:10px;" value="CREAR" data-wrap="#hacer" data-accion="guardar" data-m="pivote" />
+            <input type="button" id="guardar" class="guardar" style="padding:10px;" value="CREAR" data-wrap="#hacer" data-accion="guardar" data-m="pivote" />
             <input type="button" class="nueva" value="NUEVA" data-s="s_nueva_cot" />
         </div>
 	</form>
@@ -213,8 +201,9 @@ table{
     <table id="articulos">
       <tr>
       	<th class="agregar_articulo"><img src="img/mas.png" height="25" /></th>
+       	<th width="150">Concepto </th>
         <th width="100">Cant.</th>
-        <th width="250">Concepto</th>
+        <th width="250">Artículo</th>
         <th width="100">precio unitario</th>
         <th width="100">total</th>
         <th width="150">Acciones</th>
@@ -237,28 +226,6 @@ table{
         </table>
     </div>
     -->
-
-<div class='formularios'>
-  <h3 class='titulo_form'>Conceptos</h3>
-  <div class="campo_form">
-            <label class="">Selecciona Mensaje.</label>
-			<?php 
-					$bd=new PDO($dsnw,$userw,$passw,$optPDO);
-					$sql = "select nombre, id_concepto from conceptos";
-					$res = $bd->query($sql);
-				?>
-                <select class="conceptos">
-				<?php 
-					foreach($res->fetchAll(PDO::FETCH_ASSOC) as $datos)
-					{
-						$id = $datos["id_concepto"];
-						$nombre = $datos["nombre"];
-						echo "<option value=$id>$nombre</option>";
-					}
-				?>
-				</select>
-	</div>
-</div>
     <div id="cuenta" class="formularios" align="left">
     <h3 class='titulo_form'>Cuenta</h3>
         <div class="campo_form">
