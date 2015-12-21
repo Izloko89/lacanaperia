@@ -132,6 +132,7 @@ $(document).ready(function(e) {
 	
 	
 	$(".guardar").click(function(e) {
+	  console.log('guardado automatico');
 	  if(requerido()){
 		//metodo en que se va a guardar
 		metodo=$(this).attr('data-m');
@@ -173,6 +174,7 @@ $(document).ready(function(e) {
     });
 	
 	$(".modificar").click(function(e) {
+	  console.log("modificacion automatica");
 	  if(requerido()){
 		
 		quitar=$("input[name=quitar]");
@@ -211,6 +213,7 @@ $(document).ready(function(e) {
     });
 	
 	$(".guardar_individual").click(function(e) {
+	  console.log("guardado automatico guardar_individual");
 	  if(requerido()){
 		//metodo en que se va a guardar
 		metodo=$(this).attr('data-m');
