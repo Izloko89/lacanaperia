@@ -81,7 +81,7 @@ include("../scripts/datos.php");
 <script>
 function guardar_concepto(){
 		term = document.getElementById("nombre").value;
-		term1 = document.getElementById("titulo").value;
+		//term1 = document.getElementById("titulo").value;
 		term2 = document.getElementById("descripcion").value;
 		//datos de los formularios
 		//procesamiento de datos
@@ -92,7 +92,8 @@ function guardar_concepto(){
 			type:'POST',
 			data:{
 				'term':term,
-				'term1':term1
+				//'term1':term1,
+				'term2':term2
 			},
 			success: function(r){
 				if(r){

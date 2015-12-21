@@ -92,9 +92,12 @@ try{
     $sql="SELECT
         t1.*,
         t2.nombre,
-        t2.image
+        t2.image,
+        t3.nombre as concept_name,
+        t3.descripcion
     FROM cotizaciones_articulos t1
     LEFT JOIN articulos t2 ON t1.id_articulo=t2.id_articulo
+    LEFT JOIN conceptos t3 ON t1.id_concepto=t3.id_concepto
     WHERE t1.id_cotizacion=$id;";
     $res=$bd->query($sql);
     $articulos=array();
