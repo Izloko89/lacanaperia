@@ -49,6 +49,7 @@ try{
     // para saber los datos del cliente
     $sql="SELECT 
         t1.id_cotizacion,
+        t1.id_tipo,
         t1.nombre As nombreEvento,
         t1.fecha,
         t1.fechaevento,
@@ -143,20 +144,19 @@ try{
 
 $html='
 <page backbottom="15px">
-    
-    <page_footer>
-        <table border="0" cellpadding="0" cellspacing="0" style="font-size:13px; width:100%; margin-top:30px; padding:0 20px;">
-            <tr>
-                <td style="width:100%;vertical-align:top; text-align:center; border-top:'.pxtomm(2).' solid #484848;">
-                    <p style="width:100%; text-align:center; margin:5px auto; font-size:10px; color:#484848">www.lacanaperia.com
-                        <br/>                        
+<page_footer>
+    <table border="0" cellpadding="0" cellspacing="0" style="font-size:13px; width:100%; margin-top:30px; padding:0 20px;">
+        <tr>
+            <td style="width:100%;vertical-align:top; text-align:center; border-top:'.pxtomm(2).' solid #484848;">
+                <p style="width:100%; text-align:center; margin:5px auto; font-size:10px; color:#484848">
+                    www.lacanaperia.com
+                    <br/>                        
                     Tel (55) 59.16.37.52
-                    </p>
-                </td>
-            </tr>
-        </table>
-    </page_footer>
-    
+                </p>
+            </td>
+        </tr>
+    </table>
+</page_footer>
 <style>
 span {
     display:inline-block;
@@ -185,7 +185,6 @@ h1 {
 font-family: "Pacifico", sans-serif;
 }
 </style>
-
 <!-- header -->
 <table style="width:100%; text-align:center;" cellpadding="0" cellspacing="0">
     <tr>
@@ -194,7 +193,6 @@ font-family: "Pacifico", sans-serif;
     </tr>
 </table><!-- Fin header -->
 <br/>
-
 <!-- Fecha -->
 <table style="width:100%;" cellpadding="0" cellspacing="0">
     <tr>
@@ -203,96 +201,115 @@ font-family: "Pacifico", sans-serif;
     </tr>
 </table><!-- Fin fecha -->
 <br/>
-
-<!-- Body ... intro -->
+<!-- Body -->
+<!-- Bienvenida -->
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
     <tr>
         <td style="width:100%; text-align:left;">Estimad@: <strong>'. $cliente.'</strong></td>
     </tr>        
-</table><!-- intro -->
-
+</table>
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%;">
-                <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                Espero que te encuentres muy bien. Antes que nada quiero agradecerte la oportunidad que nos brindas para participar contigo en la planeación de "'.$nombreEve.'". Sabemos que es un evento muy importante, por ello siéntete en plena confianza de preguntarme cualquier duda respecto al recorrido culinario   y   servicios   adicionales que te  ofrecemos.</div>
-            </td>
-        </tr>
-    </table>
-    <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%;">
-                <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                Hemos creado una historia gastronómica que iremos contando a los invitados a través de diversas creaciones  culinarias  que degustarán  desde   su  llegada.    La  historia    dice    así...</div>
-            </td>
-        </tr>
-    </table>
-    <br/>
-    <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Bienvenida de Invitados:</strong></div>
-    <div style="width:100%; padding:0 20px; text-align:justify;">
-    <textarea cols="68" rows="4" style="width:100%; padding:0 20px; text-align:justify;border:none;">A la llegada de los invitados se ofrecerá una barra de aguas frescas acompañadas de una selección especial de canapés que  refrescarán a sus paladares</textarea>
-  </div>   
-    <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div>
-    <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
-    $total=0;
-    foreach($articulos as $id=>$d){
-    $html.='
-        <tr>
-            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-        </tr>
-    ';
-    }
-    $html.='
-    </table>
-    <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
-        <tr>';
-            $total=0;
-            foreach($articulos as $id=>$d){ 
-            if (!($total == 3)){
-                $html.='
-                <td>
-                    <table>
-                        <tr>
-                            <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
-                        </tr>
-                        <tr>
-                            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-                        </tr>
-                    </table>
-                </td>';
-            }
-            else {
-                $total = 0;
-                $html.='</tr></table>
-                <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
-                <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
-                        </tr>
-                        <tr>
-                            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-                        </tr>
-                    </table>
-                </td>
-                ';
-            }
-            $total++;
-            }
-            $html.='</tr></table>'; 
+    <tr>
+        <td style="width:100%;">
+            <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
+                Espero que te encuentres muy bien. Antes que nada quiero agradecerte la oportunidad que nos brindas para participar contigo en la planeación de "'.$nombreEve.'". Sabemos que es un evento muy importante, por ello siéntete en plena confianza de preguntarme cualquier duda respecto al recorrido culinario   y   servicios   adicionales que te  ofrecemos.
+            </div>
+        </td>
+    </tr>
+</table>
+<table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
+    <tr>
+        <td style="width:100%;">
+            <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
+                Hemos creado una historia gastronómica que iremos contando a los invitados a través de diversas creaciones culinarias que degustarán desde su llegada. La historia dice así...
+            </div>
+        </td>
+    </tr>
+</table><!-- Fin Bienvenida -->
+<br/>';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "bienvenida";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+         echo "not found";
+        }
+        else {
             $html.='
-            <div style="width:100%; padding:5 20px; text-align:justify;">
-            A   continuación    te  presento    los canapés seleccionados   para    la  Bienvenida:
-        </div>
-        <br/>
-        <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Menú de  3 Tiempos:</strong></div>
+            <!-- Bienvenida de invitados -->
+            <!-- Texto -->
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Bienvenida de Invitados:</strong></div>
+            <div style="width:100%; padding:0 20px; text-align:justify;">
+                <textarea cols="68" rows="4" style="width:100%; padding:0 20px; text-align:justify;border:none;">A la llegada de los invitados se ofrecerá una barra de aguas frescas acompañadas de una selección especial de canapés que  refrescarán a sus paladares</textarea>
+            </div>
+            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
+            <!-- Lista de articulos para Bienvenida invitados -->
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+                $total=0;
+                foreach($articulos as $id=>$d){
+                $html.='
+                    <tr>
+                        <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                    </tr>
+                ';
+                }
+                $html.='
+            </table><!-- Fin lista -->
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
+            <br/>
+            <!-- Imagenes de articulos -->
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                <tr>';
+                    $total=0;
+                    foreach($articulos as $id=>$d){ 
+                        if (!($total == 3)){
+                            $html.='
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                    </tr>
+                                </table>
+                            </td>';
+                        }
+                        else {
+                            $total = 0;
+                            $html.='</tr></table>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                            </tr>
+                                        </table>
+                                    </td>';
+                        }
+                        $total++;
+                    }
+                    $html.='
+                </tr>
+            </table><!-- Fin de imagenes de articulos -->
+            ';
+        }            
+    }
+}
+$html.='<!-- Fin Bienvenida de invitados -->
+<div style="width:100%; padding:0 20px; text-align:justify;"><strong>Menú de  3 Tiempos:</strong></div>
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
             <td style="width:100%;">
                 <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                Al  llegar  a   sus hermosas    mesas   decoradas   de  forma   muy especial,   se  les ofrecerá    a   los invitados   un  
-menú    de  3   tiempos con ingredietnes    especialmente   seleccionados   para    la  ocasión con deliciosos  
+                Al llegar a sus hermosas mesas decoradas de forma muy especial,   se  les ofrecerá    a   los invitados   un  
+menú de 3 tiempos con ingredietnes    especialmente   seleccionados   para    la  ocasión con deliciosos  
 ingredientes.   A   continuación    te  presento    dos opciones    para    que ustedes elijan  cuál    les gustaría    que 
 degustaran  sus invitados:</div>
             </td>
