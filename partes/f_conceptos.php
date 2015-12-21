@@ -38,10 +38,10 @@ include("../scripts/datos.php");
         <label class="label_width">Nombre</label>
         <input type="text" name="nombre" id="nombre" class="nombre text_mediano">
     </div>
-    <div class="campo_form">
+    <!-- <div class="campo_form">
         <label class="label_width">T&iacute;tulo</label>
         <input type="text" name="titulo" id="titulo" class="titulo text_mediano">
-    </div>
+    </div> -->
     <div class="campo_form">
         <label class="label_width">Descrpici&oacute;n</label>
         <input type="text" name="descripcion" id="descripcion" class="descripcion" style="width:400px;">
@@ -92,8 +92,7 @@ function guardar_concepto(){
 			type:'POST',
 			data:{
 				'term':term,
-				'term1':term1,
-				'term2':term2
+				'term1':term1
 			},
 			success: function(r){
 				if(r){
