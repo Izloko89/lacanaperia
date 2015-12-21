@@ -15,6 +15,7 @@ try{
 		listado_precios.id_articulo,
 		articulos.nombre,
 		articulos.image as imagen,
+		id_concepto,
 		cantidad,
 		precio,
 		precio1 as p1,
@@ -46,8 +47,19 @@ try{
 		//$id es el id de cotizacion proveniente de la busqueda
 		$elementos.='
 		<tr id="'.$id.'" class="lista_articulos verde_ok">
-			<td style="background-color:#FFF;"><input type="hidden" class="id_item" value="'.$v["id_item"].'" /><input type="hidden" class="id_cotizacion" value="'.$idCot.'" /><input type="hidden" class="id_articulo" value="'.$v["id_articulo"].'" /><input type="hidden" class="id_paquete" value="" /></td>
-			<td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
+			<td style="background-color:#FFF;"><input type="hidden" class="id_item" value="'.$v["id_item"].'" /><input type="hidden" class="id_cotizacion" value="'.$idCot.'" /><input type="hidden" class="id_articulo" value="'.$v["id_articulo"].'" /><input type="hidden" class="id_paquete" value="" /></td>';
+		
+		$sql = "select nombre, id_concepto from conceptos";
+		$bdcon = $bd->query($sql);
+		$elementos.='<td> <select id="'.$id.'" class="conceptos">';
+		foreach($bdcon->fetchAll(PDO::FETCH_ASSOC) as $datos){
+			$idcon = $datos["id_concepto"];
+			$nombrecon = $datos["nombre"];
+			($v["id_concepto"]==$idcon) ? $elementos.='<option value="$idcon" selected="selected">'.$nombrecon.'</option>' : $elementos.='<option value="$idcon">'.$nombrecon.'</option>';
+			
+		}
+
+		$elementos.='</select></td> <td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
 			<td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('.$id.');" value="'.$v["nombre"].'" /></td>
 			<td>'.$precios.'<span class="precio" >'.$v["precio"].'</span></td>
 			<td>$<span class="total">'.$v["total"].'</span></td>
@@ -67,6 +79,8 @@ try{
 		listado_precios.id_paquete,
 		cantidad,
 		nombre,
+		id_concepto,
+		paquetes.image as imagen,
 		precio,
 		precio1 as p1,
 		precio2 as p2,
@@ -91,13 +105,27 @@ try{
 		//$id es el id de cotizacion proveniente de la busqueda
 		$elementos.='
 		<tr id="'.$id.'" class="lista_articulos verde_ok">
-			<td style="background-color:#FFF;"><input type="hidden" class="id_item" value="'.$v["id_item"].'" /><input type="hidden" class="id_cotizacion" value="'.$idCot.'" /><input type="hidden" class="id_articulo" value="" /><input type="hidden" class="id_paquete" value="'.$v["id_paquete"].'" /></td>
-			<td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
+			<td style="background-color:#FFF;"><input type="hidden" class="id_item" value="'.$v["id_item"].'" /><input type="hidden" class="id_cotizacion" value="'.$idCot.'" /><input type="hidden" class="id_articulo" value="" /><input type="hidden" class="id_paquete" value="'.$v["id_paquete"].'" /></td>';
+		$sql = "select nombre, id_concepto from conceptos";
+		$bdcon = $bd->query($sql);
+		$elementos.='<td> <select id="'.$id.'" class="conceptos">';
+		foreach($bdcon->fetchAll(PDO::FETCH_ASSOC) as $datos){
+			$idcon = $datos["id_concepto"];
+			$nombrecon = $datos["nombre"];
+				($v["id_concepto"]==$idcon) ? $elementos.='<option value="$idcon" selected="selected">'.$nombrecon.'</option>' : $elementos.='<option value="$idcon">'.$nombrecon.'</option>';
+		}			
+		$elementos.='<td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
 			<td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('.$id.');" value="'.$v["nombre"].'" /></td>
 			<td>'.$precios.'<span class="precio" >'.$v["precio"].'</span></td>
 			<td>$<span class="total">'.$v["total"].'</span></td>
-			<td><span class="guardar_articulo" onclick="guardar_art('.$id.')"></span><span class="eliminar_articulo" onclick="eliminar_art('.$id.')"></span></td>
-		</tr>';
+			<td><span class="guardar_articulo" onclick="guardar_art('.$id.')"></span><span class="eliminar_articulo" onclick="eliminar_art('.$id.')"></span></td>';
+
+		if(isset($imagen)){
+			$imagen = str_replace(" ","%20",$imagen);
+			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="130" height="100" alt=""> </td></tr>';
+		}else{
+			$elemetos.='</tr>';
+		}	
 		$id++;
 	}
 	
