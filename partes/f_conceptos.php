@@ -36,15 +36,15 @@ include("../scripts/datos.php");
   	<input type="hidden" name="id_tipo" class="id_tipo" id="id_tipo" value="" />
     <div class="campo_form">
         <label class="label_width">Nombre</label>
-        <input type="text" name="nombre" id="nombre" class="nombre text_mediano">
+        <input type="text" name="nombre" id="nombre" class="nombre text_mediano ">
     </div>
     <!-- <div class="campo_form">
         <label class="label_width">T&iacute;tulo</label>
         <input type="text" name="titulo" id="titulo" class="titulo text_mediano">
     </div> -->
     <div class="campo_form">
-        <label class="label_width">Descrpici&oacute;n</label>
-        <input type="text" name="descripcion" id="descripcion" class="descripcion" style="width:400px;">
+        <label class="label_width">Descripici&oacute;n</label>
+        <textarea name="descripcion" id="descripcion" class="descripcion" style="width:400px;"></textarea>
     </div>
    	<div align="right">
         <input type="button" class="guardar_individual guardar" value="GUARDAR" onclick="guardar_concepto()" data-m="individual" />
