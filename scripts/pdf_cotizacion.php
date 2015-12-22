@@ -333,7 +333,7 @@ $html.='
 $html.='<!-- Fin Bienvenida de invitados -->
 
 <!-- Menú de 3 tiempos -->
-<-- Aqui va el menu de 3 tiempos -->
+<!-- Aqui va el menu de 3 tiempos -->
 <!-- Fin de menu de 3 tiempos -->
 
 <!-- Mesa de postres -->';
@@ -352,7 +352,7 @@ foreach($articulos as $id=>$d){
     }
 }
 $html.='
-<!-- Lista de articulos para Bienvenida invitados -->
+<!-- Lista de articulos para Mesa de postres -->
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
