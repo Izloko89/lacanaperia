@@ -289,7 +289,7 @@ $html.='
                     if (!($total == 3)){
                         $html.='
                         <td>
-                            <table cellspacing="0" cellpadding="0">
+                            <table>
                                 <tr>'; 
                                     (isset($d["image"])) ?
                                     $html.='
@@ -309,7 +309,7 @@ $html.='
                         <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
                             <tr>
                                 <td>
-                                    <table cellspacing="0" cellpadding="0">
+                                    <table>
                                         <tr>';
                                             (isset($d["image"])) ?
                                             $html.='
