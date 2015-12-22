@@ -51,7 +51,7 @@ $(document).ready(function(e) {
 				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
 				$.each(r, function(i, item) {
    					if(id==1){
-   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> </select>';
+   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
     				}else{
   						idcon = $('.conceptos[id='+(id-1)+']').val();			
 
