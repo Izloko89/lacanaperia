@@ -227,8 +227,7 @@ font-family: "Pacifico", sans-serif;
     </tr>
 </table><!-- Fin Bienvenida -->
 
-<!-- Bienvenida de invitados -->
-<br/>';
+<!-- Bienvenida de invitados -->';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
@@ -241,6 +240,7 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <!-- Texto -->
+            <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
