@@ -273,7 +273,6 @@ foreach($articulos as $id=>$d){
                 $html.='
             </table><!-- Fin lista -->
             <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
-            <br/>
             <!-- Imagenes de articulos -->
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
                 <tr>';
