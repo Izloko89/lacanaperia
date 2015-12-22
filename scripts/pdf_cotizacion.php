@@ -348,9 +348,30 @@ $html.='
 </table><!-- Fin de imagenes de articulos -->';
 $html.='<!-- Fin Bienvenida de invitados -->
 
-<!-- Menú de 3 tiempos -->
-<!-- Aqui va el menu de 3 tiempos -->
-<!-- Fin de menu de 3 tiempos -->
+<!-- Menú de 3 tiempos -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tiempos";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <!-- Texto -->
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
+            <br/>
+            <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
+            <br/>
+            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-menu.png" style="width:50%;" /></div><!-- Fin texto -->
+            ';
+            break;
+        }
+    }
+}
+$html.='<!-- Fin de menu de 3 tiempos -->
 
 <!-- Mesa de postres -->';
 foreach($articulos as $id=>$d){
@@ -471,6 +492,29 @@ $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
 $html.='<!-- Fin de mesa de postres -->
+
+<!-- Barra -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "panes";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <!-- Texto -->
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
+            <br/>
+            <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
+            ';
+            break;
+        }
+    }
+}
+$html.='<!-- Fin de barra -->
 
 <!-- Estacion tornaboda -->';
 foreach($articulos as $id=>$d){
