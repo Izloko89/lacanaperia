@@ -234,7 +234,7 @@ foreach($articulos as $id=>$d){
         $pos = strpos($concept_name,$compara);
 
         if($pos === false) {
-         echo "not found";
+         
         }
         else {
             $html.='
