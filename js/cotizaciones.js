@@ -11,6 +11,12 @@ $(document).ready(function(e) {
         	setTimeout(function(){buscarClaveGet();},500);
 		}
     });
+
+    $('#btn-nuevacot').click(function(){
+    	id = $(this).attr('class');
+    	$('.conceptos[id='+(id)+']').show();
+    	$(this).hide();
+    });
 	$("#contenido #tabs").tabs({ heightStyle: "content" });
 	
 	//para mostrar y ocultar el listado de salones
@@ -42,17 +48,21 @@ $(document).ready(function(e) {
 		id=$(".lista_articulos").length+1;
 		$.get("scripts/get_conceptos.php", function(r){
 				var columnas="";
-				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td><td><select id='+id+' class="conceptos">';
+				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
 				$.each(r, function(i, item) {
    					if(id==1){
-    					columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
+   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> </select>';
     				}else{
-  						idcon=$('.conceptos[id='+(id-1)+']').val();
+  						idcon = $('.conceptos[id='+(id-1)+']').val();			
+    					if(i == 0){columnas+='<td><select id='+id+' class="conceptos" style="display:none">'};
+    					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
     					
-    					idcon==item.id ? columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>'; 
+    					$("#btn-nuevacot").attr('class', id);
+    					$('#btn-nuevacot').show();
+
     				}
 				});
-				columnas+='</select> </td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
+				columnas+='</select></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
 				$("#articulos").append(columnas);
 			$.each($(".lista_articulos"),function(i,v){
 				$(this).find(".id_cotizacion").val(id_cotizacion);

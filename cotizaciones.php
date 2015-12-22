@@ -210,7 +210,11 @@ table{
         <th width="150">Imagen</th>
       </tr>
     </table>
+     
     </div>
+     <div align="right">
+            <button id="btn-nuevacot" style="display:none;" />Nueva Concepto</button>
+        </div>
     <!--
     <div class="formularios">
         <h3 class='titulo_form'>Otros conceptos</h3>
