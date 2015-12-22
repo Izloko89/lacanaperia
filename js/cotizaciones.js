@@ -54,7 +54,12 @@ $(document).ready(function(e) {
    						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> </select>';
     				}else{
   						idcon = $('.conceptos[id='+(id-1)+']').val();			
-    					if(i == 0){columnas+='<td><select id='+id+' class="conceptos" style="display:none">'};
+
+    					if(i == 0 ){  
+    						if($.isNumeric(idcon)){
+    							columnas+='<td><select id='+id+' class="conceptos" style="display:none">'
+    						}else{columnas+='<td><select id='+id+' class="conceptos">'}
+    					}
     					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
     					
     					$("#btn-nuevacot").attr('class', id);
