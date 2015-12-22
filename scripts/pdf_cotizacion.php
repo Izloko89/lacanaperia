@@ -239,7 +239,7 @@ foreach($articulos as $id=>$d){
          
         }
         else {
-            ($valheader > 1) ? $html.=' 
+            ($valheader < 2) ? $html.=' 
             <!-- Bienvenida de invitados -->
             <!-- Texto -->
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Bienvenida de Invitados:</strong></div>
