@@ -489,14 +489,14 @@ foreach($articulos as $id=>$d){
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
-            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-postres.png" style="width:50%;" /></div><!-- Fin texto -->
+            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-torna.png" style="width:50%;" /></div><!-- Fin texto -->
             ';
             break;
         }
     }
 }
 $html.='
-<!-- Lista de articulos para Mesa de postres -->
+<!-- Lista de articulos para estacion tornaboda -->
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
@@ -527,7 +527,7 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento las creaciones que los chefs estarán preparando al momento en la Estación Tornaboda</div>';
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento las creaciones que los chefs estarán preparando al momento en la Estación Tornaboda</div>';
             break;
         }
     }
