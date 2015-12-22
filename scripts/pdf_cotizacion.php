@@ -271,8 +271,24 @@ foreach($articulos as $id=>$d){
     }
 }
 $html.='
-</table><!-- Fin lista -->
-<div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
+</table><!-- Fin lista -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "bienvenida";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>';
+            break;
+        }
+    }
+}
+$html.='
 <!-- Imagenes de articulos -->
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>';
@@ -348,7 +364,6 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <br/><br/>
             <!-- Texto -->
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
