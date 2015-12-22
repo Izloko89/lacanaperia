@@ -248,7 +248,7 @@ foreach($articulos as $id=>$d){
             </div>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
             <!-- Lista de articulos para Bienvenida invitados -->
-            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">' : '';
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
                 $html.='
                     <tr>
                         <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
