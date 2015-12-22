@@ -369,7 +369,7 @@ foreach($articulos as $id=>$d){
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
-            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-menu.png" style="width:50%;" /></div><!-- Fin texto -->
+            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-postres.png" style="width:50%;" /></div><!-- Fin texto -->
             ';
             break;
         }
