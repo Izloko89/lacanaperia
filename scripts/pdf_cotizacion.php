@@ -247,14 +247,12 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
             <!-- Lista de articulos para Bienvenida invitados -->
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
-                $total=0;
-                foreach($articulos as $id=>$d){
                 $html.='
                     <tr>
                         <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
                     </tr>
                 ';
-                }
+    
                 $html.='
             </table><!-- Fin lista -->
             <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
@@ -263,7 +261,6 @@ foreach($articulos as $id=>$d){
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
                 <tr>';
                     $total=0;
-                    foreach($articulos as $id=>$d){ 
                         if (!($total == 3)){
                             $html.='
                             <td>
@@ -294,7 +291,6 @@ foreach($articulos as $id=>$d){
                                     </td>';
                         }
                         $total++;
-                    }
                     $html.='
                 </tr>
             </table><!-- Fin de imagenes de articulos -->
