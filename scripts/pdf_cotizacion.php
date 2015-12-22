@@ -227,7 +227,9 @@ font-family: "Pacifico", sans-serif;
     </tr>
 </table><!-- Fin Bienvenida -->
 <br/>';
+$valheader = 0;
 foreach($articulos as $id=>$d){
+    $valheader++;
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "bienvenida";
@@ -237,7 +239,7 @@ foreach($articulos as $id=>$d){
          
         }
         else {
-            $html.='
+            ($valheader > 1) ? $html.=' 
             <!-- Bienvenida de invitados -->
             <!-- Texto -->
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Bienvenida de Invitados:</strong></div>
@@ -246,7 +248,7 @@ foreach($articulos as $id=>$d){
             </div>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
             <!-- Lista de articulos para Bienvenida invitados -->
-            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">' : '';
                 $html.='
                     <tr>
                         <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
