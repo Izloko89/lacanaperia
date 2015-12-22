@@ -241,9 +241,7 @@ foreach($articulos as $id=>$d){
             <!-- Bienvenida de invitados -->
             <!-- Texto -->
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"] .'</strong></div>
-            <div style="width:100%; padding:0 20px; text-align:justify;">
-                <textarea cols="68" rows="4" style="width:100%; padding:0 20px; text-align:justify;border:none;">A la llegada de los invitados se ofrecerá una barra de aguas frescas acompañadas de una selección especial de canapés que  refrescarán a sus paladares</textarea>
-            </div>
+            <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
             ';
             break;
