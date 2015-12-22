@@ -1,6 +1,7 @@
 // JavaScript Document
 $(document).ready(function(e) {
     //busca cliente
+    
 	$( ".nombre" ).autocomplete({
       source: "scripts/busca_concepto.php",
       minLength: 1,
