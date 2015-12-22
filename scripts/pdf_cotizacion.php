@@ -226,6 +226,8 @@ font-family: "Pacifico", sans-serif;
         </td>
     </tr>
 </table><!-- Fin Bienvenida -->
+
+<!-- Bienvenida de invitados -->
 <br/>';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
@@ -238,7 +240,6 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <!-- Bienvenida de invitados -->
             <!-- Texto -->
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
@@ -250,102 +251,129 @@ foreach($articulos as $id=>$d){
         }
     }
 }
+$html.='
+<!-- Lista de articulos para Bienvenida invitados -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "bienvenida";
+        $pos = strpos($concept_name,$compara);
+        if ($pos === false){
+
+        }
+        else {
             $html.='
-            <!-- Lista de articulos para Bienvenida invitados -->
-            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
-                foreach($articulos as $id=>$d){
-                    if (isset($d["id_concepto"])){
-                        $concept_name = strtolower($d["concept_name"]);
-                        $compara = "bienvenida";
-                        $pos = strpos($concept_name,$compara);
+            <tr>
+                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+            </tr>';
+        }
+    }
+}
+$html.='
+</table><!-- Fin lista -->
+<div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
+<!-- Imagenes de articulos -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>';
+        $total=0;
+        foreach($articulos as $id=>$d){
+            if (isset($d["id_concepto"])){
+                $concept_name = strtolower($d["concept_name"]);
+                $compara = "bienvenida";
+                $pos = strpos($concept_name,$compara);
+                if ($pos === false){
 
-                        if ($pos === false){
-
-                        }
-                        else{
-                            $html.='
-                            <tr>
-                                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-                            </tr>';
-                        }
-                    }
                 }
-                $html.='
-            </table><!-- Fin lista -->
-            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
-            <!-- Imagenes de articulos -->
-            <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
-                <tr>';
-                    $total=0;
-                    foreach($articulos as $id=>$d){
-                        if (isset($d["id_concepto"])){
-                            $concept_name = strtolower($d["concept_name"]);
-                            $compara = "bienvenida";
-                            $pos = strpos($concept_name,$compara);
-
-                            if ($pos === false){
-
-                            }
-                            else{
-                                if (!($total == 3)){
+                else {
+                    if (!($total == 3)){
+                        $html.='
+                        <td>
+                            <table>
+                                <tr>'; 
+                                    (isset($d["image"])) ?
                                     $html.='
-                                    <td>
-                                        <table>
-                                            <tr>'; 
+                                    <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                    ' : $html.='<td></td>';
+                                    $html.='
+                                </tr>
+                                <tr>
+                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                </tr>
+                            </table>
+                        </td>';
+                    }
+                    else {
+                        $total = 0;
+                        $html.='</tr></table>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>';
                                             (isset($d["image"])) ?
                                             $html.='
-                                                <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                            <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
                                             ' : $html.='<td></td>';
                                             $html.='
-                                            </tr>
-                                            <tr>
-                                                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-                                            </tr>
-                                        </table>
-                                    </td>';
-                                }
-                                else {
-                                    $total = 0;
-                                    $html.='</tr></table>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                                        </tr>
                                         <tr>
-                                            <td>
-                                                <table>
-                                                    <tr>';
-                                                    (isset($d["image"])) ?
-                                                    $html.='
-                                                        <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
-                                                    ' : $html.='<td></td>';
-                                                    $html.='
-                                                    </tr>
-                                                    <tr>
-                                                        <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-                                                    </tr>
-                                                </table>
-                                            </td>';
-                                }
-                                $total++;
-                            }
-                        }
+                                            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                        </tr>
+                                    </table>
+                                </td>';
                     }
-                    $html.='
-                </tr>
-            </table><!-- Fin de imagenes de articulos -->
-            ';
+                    $total++;
+                }
+            }
+        }
+        $html.='
+    </tr>
+</table><!-- Fin de imagenes de articulos -->';
 $html.='<!-- Fin Bienvenida de invitados -->
+
 <!-- Menú de 3 tiempos -->
-<div style="width:100%; padding:0 20px; text-align:justify;"><strong>:</strong></div>
-        <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%;">
-                <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                Al llegar a sus hermosas mesas decoradas de forma muy especial,   se  les ofrecerá    a   los invitados   un  
-menú de 3 tiempos con ingredietnes    especialmente   seleccionados   para    la  ocasión con deliciosos  
-ingredientes.   A   continuación    te  presento    dos opciones    para    que ustedes elijan  cuál    les gustaría    que 
-degustaran  sus invitados:</div>
-            </td>
-        </tr>
-    </table>
+<-- Aqui va el menu de 3 tiempos -->
+<!-- Fin de menu de 3 tiempos -->
+
+<!-- Mesa de postres -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "postres";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+
+        }
+    }
+}
+$html.='
+<!-- Lista de articulos para Bienvenida invitados -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "postres";
+        $pos = strpos($concept_name,$compara);
+        if ($pos === false){
+
+        }
+        else {
+            $html.='
+            <tr>
+                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+            </tr>';
+        }
+    }
+}
+$html.='
+</table><!-- Fin lista -->';
+$html.='<!-- Fin de mesa de postres -->
+
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
             <td style="width:100%; text-align:left;">
