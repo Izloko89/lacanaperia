@@ -269,7 +269,7 @@ $sql="SELECT
 	value="<?php echo $wea[0]["cliente"] + 1;?>">
     </div>
     <div class="campo_form">
-    <label class="label_width">Nombre de mama o papa</label>
+    <label class="label_width">Nombre del cliente</label>
     <input type="text" name="nombre" class="nombre text_largo nombre_buscar">
     </div>
     
