@@ -335,7 +335,7 @@ foreach($articulos as $id=>$d){
             ';
 $html.='<!-- Fin Bienvenida de invitados -->
 <!-- Menú de 3 tiempos -->
-<div style="width:100%; padding:0 20px; text-align:justify;"><strong>Menú de  3 Tiempos:</strong></div>
+<div style="width:100%; padding:0 20px; text-align:justify;"><strong>:</strong></div>
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
             <td style="width:100%;">
