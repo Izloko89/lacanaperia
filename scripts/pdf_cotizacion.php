@@ -240,7 +240,7 @@ foreach($articulos as $id=>$d){
             $html.='
             <!-- Bienvenida de invitados -->
             <!-- Texto -->
-            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Bienvenida de Invitados:</strong></div>
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"] .'</strong></div>
             <div style="width:100%; padding:0 20px; text-align:justify;">
                 <textarea cols="68" rows="4" style="width:100%; padding:0 20px; text-align:justify;border:none;">A la llegada de los invitados se ofrecerá una barra de aguas frescas acompañadas de una selección especial de canapés que  refrescarán a sus paladares</textarea>
             </div>
@@ -334,6 +334,7 @@ foreach($articulos as $id=>$d){
             </table><!-- Fin de imagenes de articulos -->
             ';
 $html.='<!-- Fin Bienvenida de invitados -->
+<!-- Menú de 3 tiempos -->
 <div style="width:100%; padding:0 20px; text-align:justify;"><strong>Menú de  3 Tiempos:</strong></div>
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
