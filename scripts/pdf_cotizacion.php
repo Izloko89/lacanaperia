@@ -472,6 +472,126 @@ $html.='
 </table><!-- Fin de imagenes de articulos -->';
 $html.='<!-- Fin de mesa de postres -->
 
+<!-- Estacion tornaboda -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tornaboda";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <!-- Texto -->
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
+            <br/>
+            <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
+            <br/>
+            <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-postres.png" style="width:50%;" /></div><!-- Fin texto -->
+            ';
+            break;
+        }
+    }
+}
+$html.='
+<!-- Lista de articulos para Mesa de postres -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tornaboda";
+        $pos = strpos($concept_name,$compara);
+        if ($pos === false){
+
+        }
+        else {
+            $html.='
+            <tr>
+                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+            </tr>';
+        }
+    }
+}
+$html.='
+</table><!-- Fin lista -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tornaboda";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento las creaciones que los chefs estarán preparando al momento en la Estación Tornaboda</div>';
+            break;
+        }
+    }
+}
+$html.='
+<!-- Imagenes de articulos -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>';
+    $total=0;
+        foreach($articulos as $id=>$d){
+            if (isset($d["id_concepto"])){
+                $concept_name = strtolower($d["concept_name"]);
+                $compara = "tornaboda";
+                $pos = strpos($concept_name,$compara);
+                if ($pos === false){
+
+                }
+                else {
+                    if (!($total == 3)){
+                        $html.='
+                        <td>
+                            <table>
+                                <tr>'; 
+                                    (isset($d["image"])) ?
+                                    $html.='
+                                    <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                    ' : $html.='<td></td>';
+                                    $html.='
+                                </tr>
+                                <tr>
+                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                </tr>
+                            </table>
+                        </td>';
+                    }
+                    else {
+                        $total = 0;
+                        $html.='</tr></table>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>';
+                                            (isset($d["image"])) ?
+                                            $html.='
+                                            <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                            ' : $html.='<td></td>';
+                                            $html.='
+                                        </tr>
+                                        <tr>
+                                            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                        </tr>
+                                    </table>
+                                </td>';
+                    }
+                    $total++;
+                }
+            }
+        }
+        $html.='
+    </tr>
+</table><!-- Fin de imagenes de articulos -->';
+$html.='<!-- Fin de Estacion de tornaboda -->
+
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
             <td style="width:100%; text-align:left;">
