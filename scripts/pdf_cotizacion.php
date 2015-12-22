@@ -380,11 +380,12 @@ foreach($articulos as $id=>$d){
     }
 }
 $html.='
+</table><!-- Fin lista -->
 <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés dulces que adornarán y deleitarán a tus invitados:</div>
 <!-- Imagenes de articulos -->
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>';
-        $total=0;
+    $total=0;
         foreach($articulos as $id=>$d){
             if (isset($d["id_concepto"])){
                 $concept_name = strtolower($d["concept_name"]);
@@ -438,7 +439,7 @@ $html.='
         $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
-$html.='<!-- Fin Bienvenida de invitados -->
+$html.='<!-- Fin de mesa de postres -->
 
         <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
         <tr>
