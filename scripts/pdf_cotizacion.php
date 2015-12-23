@@ -374,7 +374,7 @@ foreach($articulos as $id=>$d){
 
 $html.='
 <!-- Lista de articulos para Bienvenida invitados -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+<table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>';
         foreach($articulos as $id=>$d){
             if (isset($d["id_concepto"])){
@@ -386,7 +386,7 @@ $html.='
                 }
                 else {
                     $html.='
-                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>';
+                    <td class = "cursiva" style="width:50%; text-align:center">'. $d["nombre"].'</td>';
                 }
             }
         }
