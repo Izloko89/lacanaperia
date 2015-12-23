@@ -213,17 +213,23 @@ table{
   </form>
     <div class='formularios'>
   <h3 class='titulo_form'>Artículos y Paquetes</h3>
-    <table id="articulos" class="table">
+     <table id="articulos">
       <tr>
         <th class="agregar_articulo"><img src="img/mas.png" height="25" /></th>
+        <th width="150">Concepto </th>
         <th width="100">Cant.</th>
-        <th width="250">Concepto</th>
+        <th width="250">Artículo</th>
         <th width="100">precio unitario</th>
         <th width="100">total</th>
         <th width="150">Acciones</th>
+        <th width="150">Imagen</th>
       </tr>
     </table>
     </div>
+
+     <div align="right">
+            <button id="btn-nuevacot" style="display:none;" />Nueva Concepto</button>
+        </div>
     <div id="cuenta" class="formularios" align="left">
     <h3 class='titulo_form'>Cuenta</h3>
         <div class="campo_form">

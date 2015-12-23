@@ -4,6 +4,13 @@ $(document).ready(function(e) {
 	$("#tabs").tabs({
 		heightstyle:"content"
 	});
+
+    $('#btn-nuevacot').click(function(){
+    	id = $(this).attr('class');
+    	$('.conceptos[id='+(id)+']').show();
+    	$(this).hide();
+    });
+
 	$( ".clave_evento" ).keyup(function(){
 		_this=$(this);
 		if(typeof timer=="undefined"){
@@ -19,15 +26,45 @@ $(document).ready(function(e) {
     }); //termina buscador de evento
 	
 	//para añadir más articulos al evento
-	$(".agregar_articulo").click(function(){
-		id_evento=$(".id_evento").get(0).value;
+$(".agregar_articulo").click(function(){
 		id=$(".lista_articulos").length+1;
-		$("#articulos").append('<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_evento" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<input type="text" class="precio" /></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td></tr>');
-		$.each($(".lista_articulos"),function(i,v){
-			$(this).find(".id_evento").val(id_evento);
+		$.get("scripts/get_conceptos.php", function(r){
+				var columnas="";
+				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
+				$.each(r, function(i, item) {
+   					if(id==1){
+   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
+    				}else{
+  						idcon = $('.conceptos[id='+(id-1)+']').val();			
+
+    					if(i == 0 ){  
+    						if($.isNumeric(idcon)){
+    							columnas+='<td><select id='+id+' class="conceptos" style="display:none">'
+    						}else{columnas+='<td><select id='+id+' class="conceptos">'}
+    					}
+    					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
+    					
+    					$("#btn-nuevacot").attr('class', id);
+    					$('#btn-nuevacot').show();
+
+    				}
+				});
+				columnas+='</select></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
+				$("#articulos").append(columnas);
+			$.each($(".lista_articulos"),function(i,v){
+				$(this).find(".id_cotizacion").val(id_cotizacion);
+			});
+			$(".cantidad").numeric();		
+		}).fail(function(){
+			$("#articulos").append('<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td><td><select class="conceptos"><option value="0">-</option></select> </td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>');
+			$.each($(".lista_articulos"),function(i,v){
+				$(this).find(".id_cotizacion").val(id_cotizacion);
+			});
+			$(".cantidad").numeric();
 		});
-		$(".cantidad").numeric();
+		
 	});
+
 	
 	//para ver el formulario de pago
 	$(".agregarpago").click(function(e) {
