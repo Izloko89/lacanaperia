@@ -53,7 +53,8 @@ if($id_cot!=""){
 			cotizaciones_articulos.id_paquete,
 			cotizaciones_articulos.cantidad,
 			cotizaciones_articulos.precio,
-			cotizaciones_articulos.total
+			cotizaciones_articulos.total,
+			cotizaciones_articulos.id_concepto
 		FROM cotizaciones_articulos
 		WHERE cotizaciones_articulos.id_cotizacion = $id_cot;";
 		$res=$bd->query($sql);

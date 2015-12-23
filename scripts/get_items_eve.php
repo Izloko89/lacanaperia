@@ -11,22 +11,22 @@ try{
 	
 	//para saber los artículos---------------------->
 	$sqlArt="SELECT
-		cotizaciones_articulos.id_item,
+		eventos_articulos.id_item,
 		listado_precios.id_articulo,
 		articulos.nombre,
 		articulos.image as imagen,
-		id_concepto,
 		cantidad,
+		id_concepto,
 		precio,
 		precio1 as p1,
 		precio2 as p2,
 		precio3 as p3,
 		precio4 as p4,
 		cantidad*precio as total
-	FROM cotizaciones_articulos
-	INNER JOIN articulos ON cotizaciones_articulos.id_articulo=articulos.id_articulo
-	INNER JOIN listado_precios ON cotizaciones_articulos.id_articulo=listado_precios.id_articulo
-	WHERE articulos.id_empresa=$id_empresa AND id_cotizacion=$idCot AND cotizaciones_articulos.id_articulo IS NOT NULL;";	
+	FROM eventos_articulos
+	INNER JOIN articulos ON eventos_articulos.id_articulo=articulos.id_articulo
+	INNER JOIN listado_precios ON eventos_articulos.id_articulo=listado_precios.id_articulo
+	WHERE articulos.id_empresa=$id_empresa AND id_evento=$idCot AND eventos_articulos.id_articulo IS NOT NULL;";	
 	$res=$bd->query($sqlArt);
 	
 	//es el id para llenar los elementos en el log de los items de la cotización
@@ -75,22 +75,22 @@ try{
 	
 	//para saber los paquetes-------------------->
 	$sqlPaq="SELECT
-		cotizaciones_articulos.id_item,
+		eventos_articulos.id_item,
 		listado_precios.id_paquete,
-		cantidad,
-		nombre,
-		id_concepto,
 		paquetes.image as imagen,
+		cantidad,
+		id_concepto,
+		nombre,
 		precio,
 		precio1 as p1,
 		precio2 as p2,
 		precio3 as p3,
 		precio4 as p4,
 		cantidad*precio as total
-	FROM cotizaciones_articulos
-	INNER JOIN paquetes ON cotizaciones_articulos.id_paquete=paquetes.id_paquete
-	INNER JOIN listado_precios ON cotizaciones_articulos.id_paquete=listado_precios.id_paquete
-	WHERE paquetes.id_empresa=$id_empresa AND id_cotizacion=$idCot AND cotizaciones_articulos.id_paquete IS NOT NULL;";	
+	FROM eventos_articulos
+	INNER JOIN paquetes ON eventos_articulos.id_paquete=paquetes.id_paquete
+	INNER JOIN listado_precios ON eventos_articulos.id_paquete=listado_precios.id_paquete
+	WHERE paquetes.id_empresa=$id_empresa AND id_evento=$idCot AND eventos_articulos.id_paquete IS NOT NULL;";	
 	$res=$bd->query($sqlPaq);
 	
 	foreach($res->fetchAll(PDO::FETCH_ASSOC) as $v){
