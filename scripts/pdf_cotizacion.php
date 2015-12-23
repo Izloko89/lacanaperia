@@ -371,7 +371,27 @@ foreach($articulos as $id=>$d){
         }
     }
 }
-$html.='<!-- Fin de menu de 3 tiempos -->
+
+$html.='
+<!-- Lista de articulos para Bienvenida invitados -->
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tiempos";
+        $pos = strpos($concept_name,$compara);
+        if ($pos === false){
+
+        }
+        else {
+            $html.='
+            <tr>
+                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+            </tr>';
+        }
+    }
+}
+$html.='</table><!-- Fin de menu de 3 tiempos -->
 
 <!-- Mesa de postres -->';
 foreach($articulos as $id=>$d){
@@ -398,24 +418,25 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Lista de articulos para Mesa de postres -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
-foreach($articulos as $id=>$d){
-    if (isset($d["id_concepto"])){
-        $concept_name = strtolower($d["concept_name"]);
-        $compara = "postres";
-        $pos = strpos($concept_name,$compara);
-        if ($pos === false){
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>';
+        foreach($articulos as $id=>$d){
+            if (isset($d["id_concepto"])){
+                $concept_name = strtolower($d["concept_name"]);
+                $compara = "postres";
+                $pos = strpos($concept_name,$compara);
+                if ($pos === false){
 
+                }
+                else {
+                    $html.='
+                    
+                        <td class = "cursiva" style="width:50%; text-align:center">'. $d["nombre"].'</td>';
+                }
+            }
         }
-        else {
-            $html.='
-            <tr>
-                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
-            </tr>';
-        }
-    }
-}
-$html.='
+        $html.='
+    </tr>
 </table><!-- Fin lista -->';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
