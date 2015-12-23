@@ -75,8 +75,7 @@ if($id_cot!=""){
 			cantidad,
 			estatus,
 			fechamontaje,
-			fechadesmont,
-			personaje
+			fechadesmont
 		FROM eventos
 		INNER JOIN eventos_articulos ON eventos.id_evento=eventos_articulos.id_evento
 		WHERE eventos.id_evento=$id_eve;";
