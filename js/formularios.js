@@ -174,7 +174,7 @@ $(document).ready(function(e) {
     });
 	
 	$(".modificar").click(function(e) {
-	  console.log("modificacion automatica");
+	  //console.log("modificacion automatica");
 	  if(requerido()){
 		
 		quitar=$("input[name=quitar]");

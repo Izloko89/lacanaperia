@@ -48,7 +48,7 @@ include("../scripts/datos.php");
     </div>
    	<div align="right">
         <input type="button" class="guardar_individual guardar" value="GUARDAR" onclick="guardar_concepto()" data-m="individual" />
-        <input type="button" class="modificar" value="MODIFICAR" style="display:none;" />
+        <input type="button" class="modificar" value="MODIFICAR" onclick="modificar_concepto()" data-m="individual" style="display:none;" />
         <input type="button" class="nueva" value="NUEVA" />
     </div>
     
