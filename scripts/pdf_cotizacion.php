@@ -388,8 +388,28 @@ $html.='
                 else {
                     if (!($total == 2)){
                         $html.='
-                        <td class = "cursiva" style="width:50%; text-align:center">'. $d["nombre"].'</td>';
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                </tr>
+                            </table>
+                        </td>';
                     }
+                    else {
+                        $total = 0;
+                        $html.='</tr></table>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                        </tr>
+                                    </table>
+                                </td>';
+                    }
+                    $total++;
                 }
             }
         }
