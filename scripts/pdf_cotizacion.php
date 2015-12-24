@@ -166,7 +166,8 @@ h1 {
     font-size:20px;
 }
 h2 {
-    margin-top:0;
+    margin:0px;
+    padding:0px;
 }
 .spacer {
     display:inline-block;
