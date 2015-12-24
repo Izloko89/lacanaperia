@@ -376,8 +376,8 @@ $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
 <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>
-        <td style="text-align:center;"><h2>Opción 1</h2></td>
-        <td style="text-align:center;"><h2>Opción 2</h2></td>
+        <td style="text-align:center;"><h3>Opción 1</h3></td>
+        <td style="text-align:center;"><h3>Opción 2</h3></td>
     </tr>
     <tr>';
         $total=0;
