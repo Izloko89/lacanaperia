@@ -165,10 +165,6 @@ span {
 h1 {
     font-size:20px;
 }
-h2 {
-    margin:0px;
-    padding:0px;
-}
 .spacer {
     display:inline-block;
     height:1px;
@@ -380,8 +376,8 @@ $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
 <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>
-        <td style="text-align:center;"><h3>Opción 1</h3></td>
-        <td style="text-align:center;"><h3>Opción 2</h3></td>
+        <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
+        <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
     </tr>
     <tr>';
         $total=0;
