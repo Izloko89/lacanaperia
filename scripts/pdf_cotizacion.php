@@ -388,18 +388,14 @@ $html.='
                 else {
                     if (!($total == 2)){
                         $html.='
-                        <td width="250" style="text-align:center;">
-                                    '. $d["nombre"].'
-                        </td>';
+                        <td width="260" style="text-align:center;">'. $d["nombre"].'</td>';
                     }
                     else {
                         $total = 0;
                         $html.='</tr></table>
-                        <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+                        <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:3px; padding:5 30px; text-align:center">
                             <tr>
-                                <td width="250" style="text-align:center;">
-                                            '. $d["nombre"].'
-                                </td>';
+                                <td width="260" style="text-align:center;">'. $d["nombre"].'</td>';
                     }
                     $total++;
                 }
