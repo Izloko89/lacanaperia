@@ -373,9 +373,10 @@ foreach($articulos as $id=>$d){
 }
 
 $html.='
-<!-- Lista de articulos para Bienvenida invitados -->
+<!-- Lista de articulos para Menú de 3 tiempos -->
 <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>';
+        $total=0;
         foreach($articulos as $id=>$d){
             if (isset($d["id_concepto"])){
                 $concept_name = strtolower($d["concept_name"]);
@@ -385,8 +386,10 @@ $html.='
 
                 }
                 else {
-                    $html.='
-                    <td class = "cursiva" style="width:50%; text-align:center">'. $d["nombre"].'</td>';
+                    if (!($total == 2)){
+                        $html.='
+                        <td class = "cursiva" style="width:50%; text-align:center">'. $d["nombre"].'</td>';
+                    }
                 }
             }
         }
