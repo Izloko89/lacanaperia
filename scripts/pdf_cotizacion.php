@@ -389,13 +389,11 @@ $html.='
                     if (!($total == 2)){
                         $html.='
                         <td width="200">
-                            <center>
                             <table>
                                 <tr>
-                                    <td class = "cursiva" text-align:center">'. $d["nombre"].'</td>
+                                    <td class = "cursiva" width="200" text-align:center">'. $d["nombre"].'</td>
                                 </tr>
                             </table>
-                            </center>
                         </td>';
                     }
                     else {
@@ -404,13 +402,11 @@ $html.='
                         <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
                             <tr>
                                 <td width="200">
-                                    <center>
                                     <table>
                                         <tr>
-                                            <td class = "cursiva" text-align:center">'. $d["nombre"].'</td>
+                                            <td class = "cursiva" width="200" text-align:center">'. $d["nombre"].'</td>
                                         </tr>
                                     </table>
-                                    </center>
                                 </td>';
                     }
                     $total++;
