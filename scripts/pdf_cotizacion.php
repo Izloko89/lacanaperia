@@ -374,8 +374,8 @@ foreach($articulos as $id=>$d){
 
 $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
-<div style="border: 2px solid #000;">
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+<div style="border: 0px solid #000; margin-top:5px;">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
         <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
@@ -393,14 +393,14 @@ $html.='
                 else {
                     if (!($total == 2)){
                         $html.='
-                        <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
+                        <td width="278" style="text-align:center; font-size:10px;"><div style="border-right: 1px solid #000">'. $d["nombre"].'</div></td>';
                     }
                     else {
                         $total = 0;
                         $html.='</tr></table>
                         <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;">
                             <tr>
-                                <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
+                                <td width="278" style="text-align:center; font-size:10px;"><div style="border-right: 1px solid #000">'. $d["nombre"].'</td>';
                     }
                     $total++;
                 }
