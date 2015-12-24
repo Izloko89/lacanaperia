@@ -165,6 +165,9 @@ span {
 h1 {
     font-size:20px;
 }
+h2 {
+    margin-top:0;
+}
 .spacer {
     display:inline-block;
     height:1px;
