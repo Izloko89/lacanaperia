@@ -87,6 +87,27 @@ try{
 }
 $bd=NULL;
 
+try{
+    $bd=new PDO($dsnw,$userw,$passw,$optPDO);
+    // para saber los datos del cliente
+    $sql="SELECT
+        ca.total,
+        co.nombre,
+        cot.noinvitados,
+        (total/noinvitados) as por_invitado
+    FROM cotizaciones_articulos as ca
+    LEFT JOIN conceptos as co ON co.id_concepto = ca.id_concepto
+    LEFT JOIN cotizaciones as cot ON cot.id_cotizacion = ca.id_cotizacion
+    WHERE ca.id_cotizacion=$id;";
+    $res=$bd->query($sql);
+    $concep=$res->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($fecha);
+    
+}catch(PDOException $err){
+    echo $err->getMessage();
+}
+$bd=NULL;
+
 //para saber los articulos y paquetes
 try{
     $bd=new PDO($dsnw,$userw,$passw,$optPDO);
@@ -692,13 +713,13 @@ $html.='<!-- Fin de Estacion de tornaboda -->
         <th style="width:15%;">Precio Total</th>
     </tr>';
     $total=0;
-    foreach($articulos as $id=>$d){ 
+    foreach($concep as $id=>$concept){ 
         $total+=$d["total"];
         $html.='
             <tr>
-                <td style="width:55%;">'. $d["nombre"].'</td>
-                <td style="width:15%;text-align:right;">'. number_format($d["precio"],2).'</td>
-                <td style="width:15%;text-align:right;">'. number_format($d["total"],2).'</td>
+                <td style="width:55%;">'. $concept["nombre"].'</td>
+                <td style="width:15%;text-align:right;">'. number_format($concept["por_invitado"],2).'</td>
+                <td style="width:15%;text-align:right;">'. number_format($concept["total"],2).'</td>
             </tr>';
     }
     $html.='
