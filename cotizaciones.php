@@ -240,12 +240,14 @@ table{
 		function deposito()
 		{
 			t = document.getElementById("total");
+			te = $('.totaleventof').val();
 			total = t.value;
 			total = total * 1;
 			e = document.getElementById("cant");
 			por = e.options[e.selectedIndex].value;
 			por = por *1;
 			document.getElementById("dtotal").value = total * por;
+			$('.totaleventof').val(te - (total* por));
 		}
 			
 		function guardias()
