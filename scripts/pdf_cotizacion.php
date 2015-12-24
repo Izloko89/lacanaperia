@@ -366,13 +366,6 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-menu.png" style="width:50%;" /></div><!-- Fin texto -->
-            ';
-            break;
-        }
-    }
-}
-
-$html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
 <div style="border: 0px solid #000; margin-top:5px;">
 <table align="center" border="0" cellspacing="0" cellpadding="0">
@@ -381,6 +374,10 @@ $html.='
         <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
     </tr>
     <tr>';
+    break;
+        }
+    }
+}
         $total=0;
         foreach($articulos as $id=>$d){
             if (isset($d["id_concepto"])){
