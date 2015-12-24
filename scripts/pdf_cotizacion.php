@@ -392,14 +392,14 @@ $html.='
                 else {
                     if (!($total == 2)){
                         $html.='
-                        <td width="278" style="text-align:center;">'. $d["nombre"].'</td>';
+                        <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
                     }
                     else {
                         $total = 0;
                         $html.='</tr></table>
                         <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;">
                             <tr>
-                                <td width="278" style="text-align:center;">'. $d["nombre"].'</td>';
+                                <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
                     }
                     $total++;
                 }
