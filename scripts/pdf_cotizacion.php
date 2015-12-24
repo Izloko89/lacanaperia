@@ -94,7 +94,7 @@ try{
         ca.total,
         co.nombre,
         cot.noinvitados,
-        (total/noinvitados) as por_invitado,
+        (total/noinvitados) as por_invitado
     FROM cotizaciones_articulos as ca
     LEFT JOIN conceptos as co ON co.id_concepto = ca.id_concepto
     LEFT JOIN cotizaciones as cot ON cot.id_cotizacion = ca.id_cotizacion
