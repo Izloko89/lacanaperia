@@ -64,12 +64,11 @@ try{
 			<td>'.$precios.'<span class="precio" >'.$v["precio"].'</span></td>
 			<td>$<span class="total">'.$v["total"].'</span></td>
 			<td><span class="guardar_articulo" onclick="guardar_art('.$id.')"></span><span class="eliminar_articulo" onclick="eliminar_art('.$id.')"></span></td>';
-		if(isset($imagen)){
+		if(isset($imagen) && $imagen != ""){
 			$imagen = str_replace(" ","%20",$imagen);
 			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="130" height="100" alt=""> </td></tr>';
-		}else{
-			$elemetos.='</tr>';
-		}	
+		}
+		$elementos.='</tr>';	
 		$id++;
 	}
 	
