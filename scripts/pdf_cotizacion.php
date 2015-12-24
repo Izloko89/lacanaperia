@@ -376,8 +376,8 @@ $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
 <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
     <tr>
-        <td>Opción 1</td>
-        <td>Opción 2</td>
+        <td style="text-align:center;"><h2>Opción 1</h2></td>
+        <td style="text-align:center;"><h2>Opción 2</h2></td>
     </tr>
     <tr>';
         $total=0;
@@ -392,14 +392,14 @@ $html.='
                 else {
                     if (!($total == 2)){
                         $html.='
-                        <td width="280" style="text-align:center;">'. $d["nombre"].'</td>';
+                        <td width="278" style="text-align:center;">'. $d["nombre"].'</td>';
                     }
                     else {
                         $total = 0;
                         $html.='</tr></table>
                         <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:3px; padding:5 30px; text-align:center">
                             <tr>
-                                <td width="280" style="text-align:center;">'. $d["nombre"].'</td>';
+                                <td width="278" style="text-align:center;">'. $d["nombre"].'</td>';
                     }
                     $total++;
                 }
