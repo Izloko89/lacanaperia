@@ -129,7 +129,7 @@ table{
         <input type="hidden" name="id_cliente" class="id_cliente" value="" />
         
         <div class="campo_form celda">
-			<label class="">CLAVE</label>
+			
             <?php //si viene con una clave dedde otra pagina
 				if(isset($_GET["cve"])){?>
 				<script>
@@ -137,9 +137,9 @@ table{
 					buscarClaveGet();
 				});
 				</script>
-					<input type="text" id="clave"  name="clave" class="clave label clave_evento requerido mayuscula text_corto" data-nueva="<?php nuevaClaveCotizar(); ?>" value="<?php echo $_GET["cve"]; ?>" />
+					<input type="hidden" id="clave"  name="clave" class="clave label clave_evento requerido mayuscula text_corto" data-nueva="<?php nuevaClaveCotizar(); ?>" value="<?php echo $_GET["cve"]; ?>" />
 			<?php }else{ ?>
-				 <input type="text" id="clave" name="clave" class="clave label clave_evento requerido mayuscula text_corto" data-nueva="<?php nuevaClaveCotizar(); ?>" value="" />
+				 <input type="hidden" id="clave" name="clave" class="clave label clave_evento requerido mayuscula text_corto" data-nueva="<?php nuevaClaveCotizar(); ?>" value="" />
 			<?php } ?>
           </div>
         <!-- <div class="campo_form celda fondo_azul" align="center">
@@ -154,7 +154,7 @@ table{
             	<?php salonesOpt();	?>
             </select>
 		</div> -->
-        <div class="campo_form celda" style="">
+        <div class="campo_form "  style="float:right;margin-right: 60px;">
 			<label>Tipo de evento</label>
 			<select name="id_tipo" class="id_tipo">
             	<option selected disabled value="">Elige un tipo</option>
@@ -390,6 +390,7 @@ table{
       id_evento,
       eventos.clave,
       eventos.nombre,
+      eventos.id_cotizacion,
       tipo_evento.nombre as tipo_evento,
       estatus,
       fechaevento,
@@ -397,7 +398,7 @@ table{
       fechadesmont
     FROM eventos
     INNER JOIN tipo_evento ON eventos.id_tipo=tipo_evento.id_tipo
-    WHERE eventos.id_empresa=$empresaid";
+    WHERE eventos.id_empresa=$empresaid ORDER BY eventos.id_cotizacion asc;";
     $sqlClie="SELECT
       id_evento,
       clientes.id_cliente,
@@ -405,7 +406,7 @@ table{
       clientes.limitecredito
     FROM clientes
     INNER JOIN eventos ON clientes.id_cliente = eventos.id_cliente
-    WHERE clientes.id_empresa=$empresaid;";
+    WHERE clientes.id_empresa=$empresaid ;";
     
     $cot=array();
     $res=$bd->query($sqlCot);
@@ -439,7 +440,7 @@ table{
       echo '<td class="bfechaevento">'.varFechaAbrNorm($d["fechaevento"]).'</td>';
       echo '<td class="bfechamontaje">'.varFechaAbrNorm($d["fechamontaje"]).'</td>';
       echo '<td class="bfechadesmont">'.varFechaAbrNorm($d["fechadesmont"]).'</td>';
-      echo '<td><img src="img/check.png" data-cve="'.$d["id_evento"].'" height="20" onclick="autorizarEve('.$folio.','.$d["clave"].')" /><img class="accion" src="img/edit.png" data-cve="'.$d["id_evento"].'" onclick="editar(this, ' . $d["id_evento"] . ');" height="20" /><img class="accion eliminar" src="img/cruz.png" data-cve="'.$d["id_evento"].'" height="20" onclick="eliminar_eve(' . $d["id_evento"] . ',' . $cont . ')"/></td>';
+      echo '<td><img src="img/check.png" data-cve="'.$d["id_evento"].'" height="20" onclick="autorizarEve('.$folio.','.$d["clave"].')" /><img class="accion" src="img/edit.png" data-cve="'.$d["id_evento"].'" onclick="editar(this, ' . $d["id_cotizacion"] . ');" height="20" /><img class="accion eliminar" src="img/cruz.png" data-cve="'.$d["id_evento"].'" height="20" onclick="eliminar_eve(' . $d["id_evento"] . ',' . $cont . ')"/></td>';
       echo '</tr>';
       $cont++;
       $num++;
