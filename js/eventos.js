@@ -30,7 +30,7 @@ $(".agregar_articulo").click(function(){
 		id=$(".lista_articulos").length+1;
 		$.get("scripts/get_conceptos.php", function(r){
 				var columnas="";
-				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
+				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_evento" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
 				$.each(r, function(i, item) {
    					if(id==1){
    						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
@@ -52,13 +52,13 @@ $(".agregar_articulo").click(function(){
 				columnas+='</select></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
 				$("#articulos").append(columnas);
 			$.each($(".lista_articulos"),function(i,v){
-				$(this).find(".id_cotizacion").val(id_cotizacion);
+				$(this).find(".id_evento").val(evento);
 			});
 			$(".cantidad").numeric();		
 		}).fail(function(){
-			$("#articulos").append('<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td><td><select class="conceptos"><option value="0">-</option></select> </td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>');
+			$("#articulos").append('<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_evento" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td><td><select class="conceptos"><option value="0">-</option></select> </td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>');
 			$.each($(".lista_articulos"),function(i,v){
-				$(this).find(".id_cotizacion").val(id_cotizacion);
+				$(this).find(".id_evento").val(evento);
 			});
 			$(".cantidad").numeric();
 		});
@@ -239,26 +239,7 @@ function get_items_eve(id){
 		}
 	});
 }
-function checarTotalEve(id){
-	var total;
-	$.ajax({
-		url:'scripts/s_check_total_eve.php',
-		cache:false,
-		async:false,
-		type:'POST',
-		data:{
-			'id':id
-		},
-		success: function(r){
-			if(r.continuar){
-				$(".totalevento").val(r.total);
-				$(".restante").val(r.total - r.pagado);
-			}else{
-				alerta("error",r.info);
-			}
-		}
-	});
-}
+
 function editar(e, id){
 	s=$(e);
 	$(".clave").val(s.attr("data-cve"));
@@ -292,6 +273,7 @@ function guardar_art(elemento){
 	$.ajax({
 		url:'scripts/guarda_art_eve.php',
 		cache:false,
+		type:'POST',
 		data:{
 			'id_item':id_item,
 			'id_paquete':id_paquete,
@@ -303,35 +285,43 @@ function guardar_art(elemento){
 			boolTotal:actTotal
 		},
 		success: function(r){
-			//procesando("ocultar",0); //0 lo dispara automaticamente
+			console.log('success');
+			console.log(r.sql);
 			if(r.continuar){
 				$("#"+elemento+" .id_item").val(r.id_item);
 				padre.find(".id_evento").val(id_evento);
 				alerta("info","Fue agregado exitosamente");
 				row.addClass("verde_ok");
+				checarTotalEve(id_evento);
 				setTimeout(function(){checarTotal('eventos',id_evento);},500);
 			  }else{
+			  	console.log('error');
 				alerta("error",r.info);
 			  }
 		}
 	});
 }
 function eliminar_art(elemento){
+	
 	id_evento=$(".id_evento").first().val();
 	id_item=$("#"+elemento+" .id_item").val();
+	precio=$("#"+elemento+" .total").html();
+
 	if(id_item!=0){
 		$.ajax({
 			url:'scripts/quita_art_eve.php',
 			cache:false,
 			type:'POST',
 			data:{
-				'id_item':id_item
+				'id_item':id_item,
+				'id_evento':id_evento,
+				'precio':precio
 			},
 			success: function(r){
 			  if(r.continuar){
 				alerta("info",r.info);
 				$("#"+elemento).remove();
-				checarTotal('eventos',id_evento);
+				checarTotalEve(id_evento);
 			  }else{
 				alerta("error",r.info);
 			  }
