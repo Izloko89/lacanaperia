@@ -348,7 +348,7 @@ $html.='
                                 <td>
                                     <table>
                                         <tr>';
-                                            (isset($d["image"])) ?
+                                            (isset($d["image"]) && $d["image"] != "" ) ?
                                             $html.='
                                             <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
                                             ' : $html.='<td></td>';
@@ -510,7 +510,7 @@ $html.='
                         <td>
                             <table>
                                 <tr>'; 
-                                    (isset($d["image"])) ?
+                                    (isset($d["image"]) && $d["image"] != "" ) ?
                                     $html.='
                                     <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
                                     ' : $html.='<td></td>';
@@ -530,7 +530,7 @@ $html.='
                                 <td>
                                     <table>
                                         <tr>';
-                                            (isset($d["image"])) ?
+                                            (isset($d["image"]) && $d["image"] != "" ) ?
                                             $html.='
                                             <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
                                             ' : $html.='<td></td>';
@@ -673,7 +673,7 @@ $html.='
                                 <td>
                                     <table>
                                         <tr>';
-                                            (isset($d["image"])) ?
+                                            (isset($d["image"]) &&  $d["image"] != "" ) ?
                                             $html.='
                                             <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
                                             ' : $html.='<td></td>';
