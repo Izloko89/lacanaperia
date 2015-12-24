@@ -31,7 +31,7 @@ try{
 		$r["continuar"]=true;
 		$r["total"]=$total;
 		if(($total-$pagado)==0){
-			$bd->query("UPDATE eventos SET estatus=2 WHERE id_evento=$id;");
+			//$bd->query("UPDATE eventos SET estatus=2 WHERE id_evento=$id;");
 		}
 		$r["restante"]=$total-$pagado;
 		

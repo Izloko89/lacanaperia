@@ -182,7 +182,7 @@ switch($_POST["metodo"]){
 			}
 			$bd->commit();
 			$r["continuar"]=true;
-			$r["info"]="Se agrego el articulo exitosamente";
+			$r["info"]=" Registro  exitosamente agregado";
 		}catch(PDOException $err){
 			$bd->rollBack();
 			$r["continuar"]=false;

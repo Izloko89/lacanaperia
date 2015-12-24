@@ -1,14 +1,20 @@
 <?php session_start();
 header("content-type: application/json");
 include("datos.php");
-include("s_check_inv_compra.php");
+//include("s_check_inv_compra.php");
 
 $id_emp=$id_empresa=$_SESSION["id_empresa"];
 $id_cot=$_POST["id_cotizacion"];
 $total=$_POST["total"];
 $anticipo=$_POST["anticipo"];
 $id_usuario=$_SESSION["id_usuario"];
-$banco=$_POST["banco"];
+if(isset($_POST['banco'])){
+
+    if(empty($_POST['banco'])){
+      $banco = '0';
+    }      
+    else $banco = $_POST['banco'];
+}
 
 if($id_cot!=""){
 	try{
@@ -53,7 +59,8 @@ if($id_cot!=""){
 			cotizaciones_articulos.id_paquete,
 			cotizaciones_articulos.cantidad,
 			cotizaciones_articulos.precio,
-			cotizaciones_articulos.total
+			cotizaciones_articulos.total,
+			cotizaciones_articulos.id_concepto
 		FROM cotizaciones_articulos
 		WHERE cotizaciones_articulos.id_cotizacion = $id_cot;";
 		$res=$bd->query($sql);
@@ -109,25 +116,23 @@ if($id_cot!=""){
 			if($v["id_articulo"]!=""){
 				//paso previo, checar si es perecedero, si no lo es entonces se debe omitir el paso 1
 				$id_art=$v["id_articulo"];
-				$resDos=$bd->query("SELECT perece FROM articulos WHERE id_empresa=$id_emp AND id_articulo=$id_art;");
-				$resDos=$resDos->fetchAll(PDO::FETCH_ASSOC);
-				$perece=$resDos[0]["perece"];
-				if($perece==0){
+			//	$resDos=$bd->query("SELECT perece FROM articulos WHERE id_empresa=$id_emp AND id_articulo=$id_art;");
+			//	$resDos=$resDos->fetchAll(PDO::FETCH_ASSOC);
+			//	$perece=$resDos[0]["perece"];
+				//if($perece==0){
 					//no es perecedero
 					$sql="INSERT INTO almacen_entradas (id_empresa,id_evento,id_articulo,fechadesmont) VALUES ($id_empresa,$id_eve,$id_art,'$desmontaje');";
 					$bd->query($sql);
-				}else{
+				//}else{
 					//si es perecedero no vuelve a entrar
-				}
-				
-			}else{
+				}else{
 				//no es perecedero
 				$sql="INSERT INTO 
 					almacen_entradas (id_empresa,id_evento,id_articulo,fechadesmont) 
 				SELECT $id_empresa,$id_eve,articulos.id_articulo,'$desmontaje' 
 				FROM paquetes_articulos
 				INNER JOIN articulos ON paquetes_articulos.id_articulo=articulos.id_articulo
-				WHERE id_paquete=".$v["id_paquete"]." AND articulos.perece=0;";
+				WHERE id_paquete=".$v["id_paquete"]." ;";
 				$bd->query($sql);
 			}
 		}//*/
@@ -138,16 +143,17 @@ if($id_cot!=""){
 		 # 2.- añadir el total
 		 ##################################*/
 		 $id_emp_eve=$id_empresa."_".$id_eve;
-		 $sqlEveTotal="INSERT INTO eventos_total (id_evento,total) VALUES ('$id_emp_eve','$total');";
-		 $bd->query($sqlEveTotal);
+		 $sql="INSERT INTO eventos_total (id_evento,total) VALUES ('$id_emp_eve','$total');";
+		 $bd->query($sql);
 		 
 		 /* ################################
 		 # Registrar anticipo
 		 # 1.- Crear el identificador de empresa_evento para que sea unico
 		 # 2.- añadir el total
 		 ##################################*/
-		 $sqlPago="INSERT INTO eventos_pagos (id_evento,id_cliente,plazo,cantidad,id_banco) VALUES ('$id_emp_eve',$id_cliente,'anticipo','$anticipo', $banco);";
-		 $bd->query($sqlPago);
+		 
+		 $sql="INSERT INTO eventos_pagos (id_evento,id_cliente,plazo,cantidad,id_banco) VALUES ('$id_emp_eve',$id_cliente,'anticipo','$anticipo', $banco);";
+		 $bd->query($sql);
 		 
 		 /* ################################
 		 # Registrar comisión del vendedor por hacer un evento
@@ -155,18 +161,19 @@ if($id_cot!=""){
 		 # 2.- añadir el total
 		 ##################################*/
 		 $comision=$total*$_SESSION["comision"];
-		 $sqlComision="INSERT INTO usuarios_comisiones (
+		 $sql="INSERT INTO usuarios_comisiones (
 		 	id_empresa,id_usuario,id_evento,comision) 
 		 VALUES
 		 	($id_empresa,$id_usuario,'$id_emp_eve','$anticipo');";
-		 $bd->query($sqlComision);
+		 $bd->query($sql);
 		 
-		 $r["info"]=ordenCompra($id_eve);
+		 $r["info"]="Se guardo correctamente el articulo.";
 		
 		$r["continuar"]=true;
 	}catch(PDOException $err){
 		$r["continuar"]=false;
-		$r["info"]="Error: ".$err->getMessage()." <br />$sql";
+		// $r["info"]="Se guardo correctamente el articulo.";
+		$r["info"]=": ".$err->getMessage()." <br />$sql";
 	}
 }else{
 	$r["continuar"]=false;

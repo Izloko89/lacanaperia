@@ -178,7 +178,7 @@ $(document).ready(function(e) {
     });
 	$(".anticipo").keyup(function(e) {
 		anticipo=$(this).val();
-		total=$(".totalevento").val();
+		total=$(".totaleventof").val();
         $(".restante").val(total-anticipo);
     });
 });
@@ -414,12 +414,17 @@ function pasarevento(){
 	}
 	if(continuar){
 		//pasar a evento
-		id=$("body").find(".id_cotizacion").get(0).value;
-		total=$(".totalevento").val();
+id=$("body").find(".id_cotizacion").get(0).value;
+		total=$(".totaleventof").val();
 		anticipo=$(".anticipo").val();
 		metodo=$(".metodo").val();
 		plazos=$(".plazos").val();
 		banco=$(".bancos").val();
+		total1=$("#total").val();
+		cant=$("#cant").val();
+		dtotal=$("#dtotal").val();
+		ward1=$("#ward1").val();
+		gtotal=$("#gtotal").val();
 		$.ajax({
 			url:'scripts/s_pasaraevento.php',
 			cache:false,
@@ -429,6 +434,7 @@ function pasarevento(){
 				id_cotizacion:id,
 				'total':total,
 				'anticipo':anticipo,
+				'metodo':metodo,
 				'banco':banco
 			},
 			success: function(r){
@@ -457,6 +463,7 @@ function checarTotal(tabla,id){
 		success: function(r){
 			if(r.continuar){
 				$(".totalevento").val(r.total);
+				$(".totaleventof").val(r.total);
 			}else{
 				alerta("error",r.info);
 			}
