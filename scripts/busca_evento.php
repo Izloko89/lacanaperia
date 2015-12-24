@@ -25,7 +25,7 @@ try{
 	FROM eventos
 	INNER JOIN tipo_evento ON tipo_evento.id_tipo=eventos.id_tipo
 	INNER JOIN clientes ON eventos.id_cliente=clientes.id_cliente 
-	WHERE eventos.id_evento=$term;";
+	WHERE eventos.id_cotizacion=$term;";
 	
 	$res=$bd->query($sql);
 	$filas=$res->rowCount();

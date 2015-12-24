@@ -24,6 +24,16 @@ $(document).ready(function(e) {
 			},300);
 		}
     }); //termina buscador de evento
+    //busca cliente
+	$( ".nombre" ).autocomplete({
+      source: "scripts/busca_evento_nombre.php",
+      minLength: 1,
+      select: function( event, ui ) {
+      	$('.clave').val(ui.item.id_cotizacion);
+		buscarClaveGet();
+		$(".modificar").show();
+	  }
+    });
 	
 	//para añadir más articulos al evento
 $(".agregar_articulo").click(function(){
@@ -242,7 +252,7 @@ function get_items_eve(id){
 
 function editar(e, id){
 	s=$(e);
-	$(".clave").val(s.attr("data-cve"));
+	$(".clave").val(id);
 	buscarClaveGet(id);
 	$(".hacer a")[0].click();
 }
@@ -450,7 +460,12 @@ function checarTotalEve(id){
 		success: function(r){
 			if(r.continuar){
 				$(".totalevento").val(r.total);
-				$(".restante").val(r.restante);
+				if(r.restante > 0){
+					$(".restante").val(r.restante);
+				}else{
+					$(".restante").val(0);
+				}
+
 			}else{
 				alerta("error",r.info);
 			}
