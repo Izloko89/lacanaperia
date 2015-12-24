@@ -657,59 +657,50 @@ $html.='
 </table><!-- Fin de imagenes de articulos -->';
 $html.='<!-- Fin de Estacion de tornaboda -->
 
-        <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%; text-align:left;">
-                <strong>Cotización</strong>
-            </td>
-            </tr>
+<table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
+    <tr>
+        <td style="width:100%; text-align:left;"><strong>Cotización</strong></td>
+    </tr>
+    <tr>
+        <td style="width:100%; text-align:justify;">La siguiente cotización desglosa los servicios propuestos para tu evento contemplando 250 invitados:</td>
+    </tr>        
+</table>
+
+<table align="center" border="0.3" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>
+        <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
+    </tr>
+    <tr align="center">
+        <th style="width:55%;">Desgloce de Servicio</th>
+        <th style="width:15%;">Precio por invitado</th>
+        <th style="width:15%;">Precio Total</th>
+    </tr>';
+    $total=0;
+    foreach($articulos as $id=>$d){ 
+        $total+=$d["total"];
+        $html.='
             <tr>
-            <td style="width:100%; text-align:justify;">
-                La  siguiente   cotización  desglosa    los servicios   propuestos  para    tu  evento  contemplando    250 invitados:
-            </td>
-        </tr>        
-    </table>
-            <table align="center" border="0.3" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
-            <tr>
-                <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización  del Evento</strong></td>
-                </tr>
-                <tr align="center">
-                    <th style="width:55%;">Desgloce de Servicio</th>
-                    <th style="width:15%;">Precio por invitado</th>
-                    <th style="width:15%;">Precio Total</th>
-                </tr>';
-            $total=0;
-            foreach($articulos as $id=>$d){ 
-            $total+=$d["total"];
-            $html.='
-                <tr>
-                    <td style="width:55%;">'. $d["nombre"].'</td>
-                    <td style="width:15%;text-align:right;">'. number_format($d["precio"],2).'</td>
-                    <td style="width:15%;text-align:right;">'. number_format($d["total"],2).'</td>
-                </tr>';
-            } 
-            $html.='
-                <tr>
-                    <td style="width:55%;"></td>
-                    <td style="width:15%;text-align:right;">
-                        <strong>Total:</strong>
-                    </td>
-                    <td style="width:15%;text-align:right;">
-                        <strong>'. number_format($total,2).'</strong>
-                    </td>
-                </tr>
-            </table>       
-    <br/>
-    <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
-        <tr>
-            <td style="width:100%;">
-                <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                Te mando un cordial saludo y sigo a tus órdenes para cualquier duda o ajuste respecto a la propuesta.</div>
-            </td>
-        </tr>        
-    </table>
- <div style="width:100%; padding 20px; font-size:12px;text-align:justify;">
-                ATENTAMENTE</div>
+                <td style="width:55%;">'. $d["nombre"].'</td>
+                <td style="width:15%;text-align:right;">'. number_format($d["precio"],2).'</td>
+                <td style="width:15%;text-align:right;">'. number_format($d["total"],2).'</td>
+            </tr>';
+    }
+    $html.='
+    <tr>
+        <td style="width:55%;"></td>
+        <td style="width:15%;text-align:right;"><strong>Total:</strong></td>
+        <td style="width:15%;text-align:right;"><strong>'. number_format($total,2).'</strong></td>
+    </tr>
+</table>       
+<br/>
+    
+<table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
+    <tr>
+        <td style="width:100%;"><div style="width:100%; padding 20px; font-size:12px;text-align:justify;">Te mando un cordial saludo y sigo a tus órdenes para cualquier duda o ajuste respecto a la propuesta.</div></td>
+    </tr>        
+</table>
+
+<div style="width:100%; padding 20px; font-size:12px;text-align:justify;">ATENTAMENTE</div>
 </page>';
 
 $path='../docs/';

@@ -45,7 +45,7 @@ function requerido(seccion){
 	selector=seccion + " .requerido";
 	continuar=true;
 	$.each($(selector),function(i,v){
-		console.log(v);
+		//console.log(v);
 		if($(this).val()==""){
 			$(this).addClass("falta_llenar");
 			continuar=false;
