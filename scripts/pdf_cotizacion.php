@@ -374,7 +374,7 @@ foreach($articulos as $id=>$d){
 
 $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
-<table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
     <tr>
         <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
         <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
@@ -397,7 +397,7 @@ $html.='
                     else {
                         $total = 0;
                         $html.='</tr></table>
-                        <table align="center" border="1" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:3px; padding:5 30px; text-align:center">
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;">
                             <tr>
                                 <td width="278" style="text-align:center;">'. $d["nombre"].'</td>';
                     }
