@@ -905,7 +905,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_postres,2).'</td>
-                <td style="width:15%; text-align:right;">'.$number_format($total_postres,2).'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_postres,2).'</td>
             </tr>
             ';
             break;
