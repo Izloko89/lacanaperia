@@ -385,6 +385,7 @@ $html.='
                     </table>
                     ';
                 }
+                $total++;
             }
         }
         $html.='
