@@ -292,7 +292,7 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <tr>
-                <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                <td class = "cursiva" style="width:55%; text-align:center; font-family:Coronetscript, cursive;">'. $d["nombre"].'</td>
             </tr>';
         }
     }
