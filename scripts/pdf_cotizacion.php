@@ -897,6 +897,28 @@ foreach($articulos as $id=>$d){
     }
 }
 
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tiempos";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_tiempos.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
 $html.='
 </table>
 <div>'. $total_bienvenida .'</div>
