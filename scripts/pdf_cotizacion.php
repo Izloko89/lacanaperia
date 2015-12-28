@@ -9,6 +9,11 @@ $id = 0;
 if(isset($_GET["id"])){
     $id=$_GET["id"];
 }
+$total_bienvenida = 0;
+$total_tiempos = 0;
+$total_postres = 0;
+$total_barra = 0;
+$total_torna = 0;
 
 //funciones para convertir px->mm
 function mmtopx($d){
@@ -274,7 +279,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Lista de articulos para Bienvenida invitados -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+<table align="center" border="0" cellspacing="0" cellpadding="0">';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
@@ -311,7 +316,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Imagenes de articulos -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
     <tr>';
         $total=0;
         foreach($articulos as $id=>$d){
@@ -335,7 +340,7 @@ $html.='
                                     $html.='
                                 </tr>
                                 <tr>
-                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                    <td class = "cursiva" style="width:55%; text-align:center; font-size:10px;">'. $d["nombre"].'</td>
                                 </tr>
                             </table>
                         </td>';
@@ -464,7 +469,7 @@ foreach($articulos as $id=>$d){
 $total_tiempos = $total;
 $html.='
 <!-- Fin de menu de 3 tiempos -->
-<div>'.$total_tiempos.'</div>
+
 <!-- Mesa de postres -->';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
@@ -490,7 +495,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Lista de articulos para Mesa de postres -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+<table align="center" border="0" cellspacing="0" cellpadding="0">';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
@@ -527,7 +532,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Imagenes de articulos -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
     <tr>';
     $total=0;
         foreach($articulos as $id=>$d){
@@ -551,7 +556,7 @@ $html.='
                                     $html.='
                                 </tr>
                                 <tr>
-                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                    <td class = "cursiva" style="width:55%; text-align:center; font-size:10px;">'. $d["nombre"].'</td>
                                 </tr>
                             </table>
                         </td>';
@@ -583,6 +588,22 @@ $html.='
         $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "postres";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];            
+        }
+    }
+}
+$total_postres = $total;
 $html.='<!-- Fin de mesa de postres -->
 
 <!-- Barra -->';
@@ -633,7 +654,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Lista de articulos para estacion tornaboda -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">';
+<table align="center" border="0" cellspacing="0" cellpadding="0">';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
@@ -670,7 +691,7 @@ foreach($articulos as $id=>$d){
 }
 $html.='
 <!-- Imagenes de articulos -->
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
     <tr>';
     $total=0;
         foreach($articulos as $id=>$d){
@@ -694,7 +715,7 @@ $html.='
                                     $html.='
                                 </tr>
                                 <tr>
-                                    <td class = "cursiva" style="width:55%; text-align:center">'. $d["nombre"].'</td>
+                                    <td class = "cursiva" style="width:55%; text-align:center; font-size:10px;">'. $d["nombre"].'</td>
                                 </tr>
                             </table>
                         </td>';
@@ -726,6 +747,22 @@ $html.='
         $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tornaboda";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];            
+        }
+    }
+}
+$total_torna = $total;
 $html.='<!-- Fin de Estacion de tornaboda -->
 
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
