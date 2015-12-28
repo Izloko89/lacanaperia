@@ -262,6 +262,7 @@ foreach($articulos as $id=>$d){
             $html.='
             <!-- Texto -->
             <br/>
+            if
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
@@ -714,7 +715,14 @@ $html.='<!-- Fin de Estacion de tornaboda -->
     </tr>';
     $total=0;
     foreach($concep as $id=>$concept){ 
-        $total+=$d["total"];
+        $total+=$concept["total"];
+        $tmpCon = $concept["concept"];
+        
+        if($tmpCon == $concept["concept"]){
+
+        }else{
+
+        }
         $html.='
             <tr>
                 <td style="width:55%;">'. $concept["nombre"].'</td>
@@ -748,10 +756,10 @@ $filename="generador.pdf";
 //$orientar=$_POST["orientar"];
 $orientar="portrait";
 
-//echo $html;
-$topdf=new HTML2PDF($orientar,array($mmCartaW,$mmCartaH),'es');
-$topdf->writeHTML($html);
-$topdf->Output();
+echo $html;
+//$topdf=new HTML2PDF($orientar,array($mmCartaW,$mmCartaH),'es');
+//$topdf->writeHTML($html);
+//$topdf->Output();
 //$path.$filename,'F'
 
 //echo "http://".$_SERVER['HTTP_HOST']."/docs/".$filename;
