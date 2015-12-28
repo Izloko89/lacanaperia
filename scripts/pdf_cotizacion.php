@@ -867,10 +867,7 @@ $html.='
     </tr>
 </table>
 
-<table align="center" border="0.3" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
-    <tr>
-        <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
-    </tr>
+<table border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td>Desgloce de Servicios</td>
         <td>Precio por invitado</td>
