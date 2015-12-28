@@ -389,6 +389,7 @@ foreach($articulos as $id=>$d){
     }
 }
 $total_bienvenida = $total;
+$invi_bienvenida = $total_bienvenida / $noIn;
 $html.='<!-- Fin Bienvenida de invitados -->
 
 <!-- Menú de 3 tiempos -->';
@@ -891,7 +892,7 @@ foreach($articulos as $id=>$d){
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
-                <td>'.$total_bienvenida/$noIn.'</td>
+                <td>'.$invi_bienvenida.'</td>
                 <td>'.$total_bienvenida.'</td>
             </tr>
             ';
