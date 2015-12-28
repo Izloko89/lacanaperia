@@ -292,7 +292,7 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <tr>
-                <td class = "cursiva" style="width:55%; text-align:center; font-family:Coronetscript, cursive;">'. $d["nombre"].'</td>
+                <td class = "cursiva" style="width:55%; text-align:center;">'. $d["nombre"].'</td>
             </tr>';
         }
     }
@@ -1024,7 +1024,7 @@ $orientar="portrait";
 
 //echo $html;
 $topdf=new HTML2PDF($orientar,array($mmCartaW,$mmCartaH),'es');
-$topdf->writeHTML($html);
+$topdf->writeHTML($css.$html);
 $topdf->Output();
 //$path.$filename,'F'
 
