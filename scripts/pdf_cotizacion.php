@@ -209,7 +209,7 @@ h1 {
     src:url("fonts/Pacifico.ttf") format("truetype");
 }
 .cursiva {
-font-family: "Pacifico", sans-serif;
+font-family: "Pacifico", sans-serif, cursive;
 }
 </style>
 <!-- header -->
