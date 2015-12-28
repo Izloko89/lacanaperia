@@ -837,6 +837,40 @@ $html.='
     <tr>
         <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
     </tr>
+    <tr align="center">
+        <th style="width:55%;">Desgloce de Servicio</th>
+        <th style="width:15%;">Precio por invitado</th>
+        <th style="width:15%;">Precio Total</th>
+    </tr>';
+    $total=0;
+    foreach($concep as $id=>$concept){ 
+        $total+=$concept["total"];
+        $tmpCon = $concept["concept"];
+        
+        if($tmpCon == $concept["concept"]){
+
+        }else{
+
+        }
+        $html.='
+            <tr>
+                <td style="width:55%;">'. $concept["nombre"].'</td>
+                <td style="width:15%;text-align:right;">'. number_format($concept["por_invitado"],2).'</td>
+                <td style="width:15%;text-align:right;">'. number_format($concept["total"],2).'</td>
+            </tr>';
+    }
+    $html.='
+    <tr>
+        <td style="width:55%;"></td>
+        <td style="width:15%;text-align:right;"><strong>Total:</strong></td>
+        <td style="width:15%;text-align:right;"><strong>'. number_format($total,2).'</strong></td>
+    </tr>
+</table>
+
+<table align="center" border="0.3" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>
+        <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
+    </tr>
     <tr>
         <td>Desgloce de Servicios</td>
         <td>Precio por invitado</td>
@@ -854,10 +888,12 @@ foreach($articulos as $id=>$d){
         
         }
         else {
+            $invi = 0;
+            $invi = $total_bienvenida/$noIn;
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
-                <td></td>
+                <td>'.$invi.'</td>
                 <td>'.$total_bienvenida.'</td>
             </tr>
             ';
