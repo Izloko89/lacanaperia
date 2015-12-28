@@ -405,8 +405,8 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-menu.png" style="width:50%;" /></div><!-- Fin texto -->
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
                 <tr>
-                    <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
-                    <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
+                    <td width="278" style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
+                    <td width="278" style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
                 </tr>
             </table>';
             break;
@@ -445,8 +445,26 @@ $html.='
         }
         $html.='
     </tr>
-</table><!-- Fin de menu de 3 tiempos -->
+</table>';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tiempos";
+        $pos = strpos($concept_name,$compara);
 
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];            
+        }
+    }
+}
+$total_tiempos = $total;
+$html.='
+<!-- Fin de menu de 3 tiempos -->
+<div>'.$total_tiempos.'</div>
 <!-- Mesa de postres -->';
 foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
