@@ -365,32 +365,27 @@ $html.='
                 }
             }
         }
-
-        // $total=0;
-        // foreach($articulos as $id=>$d){
-        //     if (isset($d["id_concepto"])){
-        //         $concept_name = strtolower($d["concept_name"]);
-        //         $compara = "bienvenida";
-        //         $pos = strpos($concept_name,$compara);
-
-        //         if($pos === false) {
-                
-        //         }
-        //         else {
-        //             $html.='
-        //             <table>
-        //                 <tr>
-        //                     <td>'. $d["nombre"] .'</td>
-        //                 </tr>
-        //             </table>
-        //             ';
-        //         }
-        //         $total++;
-        //     }
-        // }
         $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "bienvenida";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];
+            $html.='
+            <div>'.$d["total"].'</div>';
+            
+        }
+    }
+}
 $html.='<!-- Fin Bienvenida de invitados -->
 
 <!-- Menú de 3 tiempos -->';
