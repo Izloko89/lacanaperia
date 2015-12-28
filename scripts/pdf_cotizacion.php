@@ -385,8 +385,9 @@ foreach($articulos as $id=>$d){
         }
     }
 }
+$total_bienvenida = $total;
 $html.='<!-- Fin Bienvenida de invitados -->
-<div>'.$total.'</div>
+<div>'.$total_bienvenida.'</div>
 
 <!-- Menú de 3 tiempos -->';
 foreach($articulos as $id=>$d){
