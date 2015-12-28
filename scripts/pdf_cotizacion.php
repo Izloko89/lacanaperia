@@ -262,7 +262,6 @@ foreach($articulos as $id=>$d){
             $html.='
             <!-- Texto -->
             <br/>
-            if
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
@@ -379,15 +378,12 @@ foreach($articulos as $id=>$d){
         
         }
         else {
-            $total+=$d["total"];
-            $html.='';
-            
+            $total+=$d["total"];            
         }
     }
 }
 $total_bienvenida = $total;
 $html.='<!-- Fin Bienvenida de invitados -->
-<div>'.$total_bienvenida.'</div>
 
 <!-- Menú de 3 tiempos -->';
 foreach($articulos as $id=>$d){
@@ -407,7 +403,12 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-menu.png" style="width:50%;" /></div><!-- Fin texto -->
-            ';
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                <tr>
+                    <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
+                    <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
+                </tr>
+            </table>';
             break;
         }
     }
@@ -415,12 +416,7 @@ foreach($articulos as $id=>$d){
 
 $html.='
 <!-- Lista de articulos para Menú de 3 tiempos -->
-<div style="border: 0px solid #000; margin-top:5px;">
 <table align="center" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-        <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 1</td>
-        <td style="text-align:center; padding-bottom:5px; font-size:16px; font-weight:bold;">Opción 2</td>
-    </tr>
     <tr>';
         $total=0;
         foreach($articulos as $id=>$d){
@@ -449,7 +445,7 @@ $html.='
         }
         $html.='
     </tr>
-</table></div><!-- Fin de menu de 3 tiempos -->
+</table><!-- Fin de menu de 3 tiempos -->
 
 <!-- Mesa de postres -->';
 foreach($articulos as $id=>$d){
