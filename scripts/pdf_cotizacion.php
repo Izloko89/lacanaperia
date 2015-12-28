@@ -867,6 +867,38 @@ $html.='
     </tr>
 </table>
 
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>Desgloce de Servicios</td>
+        <td>Precio por invitado</td>
+        <td>Precio Total</td>
+    </tr>
+';
+
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "bienvenida";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_bienvenida.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
+$html.='
+</table>
 <div>'. $total_bienvenida .'</div>
 <div>'. $total_tiempos .'</div>
 <div>'. $total_postres .'</div>
