@@ -984,6 +984,8 @@ foreach($articulos as $id=>$d){
 
 $total_evento = $total_bienvenida + $total_tiempos + $total_postres + $total_barra + $total_torna + $total_coctel;
 $total_invi = $total_evento / $noIn;
+$iva_invi = $total_invi * 0.16;
+$iva_total = $total_evento * 0.16;
 $html.='
     <tr>
         <td style="width:55%; text-align:center; font-weight:bold;">Total</td>
@@ -992,8 +994,13 @@ $html.='
     </tr>
     <tr>
         <td style="width:55%; text-align:center;">IVA(16%)</td>
-        <td style="width:15%; text-align:right;">'.number_format($total_invi*0.16,2).'</td>
-        <td style="width:15%; text-align:right;">'.number_format($total_evento*0.16,2).'</td>
+        <td style="width:15%; text-align:right;">'.number_format($iva_invi,2).'</td>
+        <td style="width:15%; text-align:right;">'.number_format($iva_total,2).'</td>
+    </tr>
+    <tr>
+        <td style="width:55%; text-align:center; font-weight:bold;">Total</td>
+        <td style="width:15%; text-align:right;">'.number_format($total_invi + $iva_invi,2).'</td>
+        <td style="width:15%; text-align:right;">'.number_format($total_evento + $iva_total,2).'</td>
     </tr>
 </table>
 <br/>
