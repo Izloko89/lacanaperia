@@ -273,7 +273,7 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
-            <div style="width:100%; margin-top:10px;"></div>
+            <div style="width:100%; margin-top:5px;"></div>
             ';
             break;
         }
@@ -311,7 +311,9 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>';
+            <div style="width:100%; margin-top:5px;"></div>
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés seleccionados para la Bienvenida:</div>
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
@@ -405,6 +407,7 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <!-- Texto -->
+            <div style="width:100%; margin-top:5px;"></div>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
@@ -485,12 +488,13 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <!-- Texto -->
+            <div style="width:100%; margin-top:5px;"></div>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
             <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-postres.png" style="width:50%;" /></div><!-- Fin texto -->
-            ';
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
@@ -527,7 +531,9 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés dulces que adornarán y deleitarán a tus invitados:</div>';
+            <div style="width:100%; margin-top:5px;"></div>
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento los canapés dulces que adornarán y deleitarán a tus invitados:</div>
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
@@ -621,8 +627,8 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <!-- Texto -->
+            <div style="width:100%; margin-top:5px;"></div>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
-            <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             ';
             break;
@@ -660,13 +666,12 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <!-- Texto -->
+            <!-- Texto --><div style="width:100%; margin-top:5px;"></div>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
-            <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-torna.png" style="width:50%;" /></div><!-- Fin texto -->
-            ';
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
@@ -703,7 +708,9 @@ foreach($articulos as $id=>$d){
         }
         else {
             $html.='
-            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento las creaciones que los chefs estarán preparando al momento en la Estación Tornaboda</div>';
+            <div style="width:100%; margin-top:5px;"></div>
+            <div style="width:100%; padding:5 20px; text-align:justify;">A continuación te presento las creaciones que los chefs estarán preparando al momento en la Estación Tornaboda</div>
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
@@ -797,10 +804,10 @@ foreach($articulos as $id=>$d){
         else {
             $html.='
             <!-- Texto -->
+            <div style="width:100%; margin-top:5px;"></div>
             <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
-            <br/>
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
-            ';
+            <div style="width:100%; margin-top:5px;"></div>';
             break;
         }
     }
