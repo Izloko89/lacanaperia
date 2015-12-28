@@ -915,7 +915,9 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
+}
 
+foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "postres";
@@ -935,7 +937,9 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
+}
 
+foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "panes";
@@ -955,7 +959,9 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
+}
 
+foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "tornaboda";
@@ -975,7 +981,9 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
+}
 
+foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "coctel";
