@@ -273,6 +273,7 @@ foreach($articulos as $id=>$d){
             <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
             <br/>
             <div style="width:100%; padding:0 15px; text-align:center;"><img src="../img/ribbon-inv.png" style="width:50%;" /></div><!-- Fin texto -->
+            <div style="width:100%; margin-top:10px;"></div>
             ';
             break;
         }
