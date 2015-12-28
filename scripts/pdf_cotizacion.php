@@ -872,9 +872,9 @@ $html.='
         <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
     </tr>
     <tr>
-        <td>Desgloce de Servicios</td>
-        <td>Precio por invitado</td>
-        <td>Precio Total</td>
+        <th width="55%">Desgloce de Servicios</th>
+        <th width="15%">Precio por invitado</th>
+        <th width="15%">Precio Total</th>
     </tr>
 ';
 
