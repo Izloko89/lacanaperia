@@ -14,6 +14,7 @@ $total_tiempos = 0;
 $total_postres = 0;
 $total_barra = 0;
 $total_torna = 0;
+$total_coctel = 0;
 
 //funciones para convertir px->mm
 function mmtopx($d){
@@ -806,7 +807,14 @@ $html.='<!-- Fin de Estacion de tornaboda -->
         <td style="width:15%;text-align:right;"><strong>Total:</strong></td>
         <td style="width:15%;text-align:right;"><strong>'. number_format($total,2).'</strong></td>
     </tr>
-</table>       
+</table>
+
+<div>'. $total_bienvenida .'<div>
+<div>'. $total_tiempos .'<div>
+<div>'. $total_postres .'<div>
+<div>'. $total_barra .'<div>
+<div>'. $total_torna .'<div>
+<div>'. $total_coctel .'<div>
 <br/>
     
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
