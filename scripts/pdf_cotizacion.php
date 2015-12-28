@@ -888,10 +888,11 @@ foreach($articulos as $id=>$d){
         
         }
         else {
+            $invi_bienvenida = $total_bienvenida/$noIn;
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
-                <td>'.number_format($total_bienvenida/$noIn,2).'</td>
+                <td>'.number_format($invi_bienvenida,2).'</td>
                 <td>'.$total_bienvenida.'</td>
             </tr>
             ';
@@ -910,10 +911,11 @@ foreach($articulos as $id=>$d){
         
         }
         else {
+            $invi_tiempos = $total_tiempos/$noIn;
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
-                <td></td>
+                <td>'.number_format($invi_tiempos,2).'</td>
                 <td>'.$total_tiempos.'</td>
             </tr>
             ';
