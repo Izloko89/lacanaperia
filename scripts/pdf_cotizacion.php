@@ -366,28 +366,28 @@ $html.='
             }
         }
 
-        $total=0;
-        foreach($articulos as $id=>$d){
-            if (isset($d["id_concepto"])){
-                $concept_name = strtolower($d["concept_name"]);
-                $compara = "bienvenida";
-                $pos = strpos($concept_name,$compara);
+        // $total=0;
+        // foreach($articulos as $id=>$d){
+        //     if (isset($d["id_concepto"])){
+        //         $concept_name = strtolower($d["concept_name"]);
+        //         $compara = "bienvenida";
+        //         $pos = strpos($concept_name,$compara);
 
-                if($pos === false) {
+        //         if($pos === false) {
                 
-                }
-                else {
-                    $html.='
-                    <table>
-                        <tr>
-                            <td>'. $d["nombre"] .'</td>
-                        </tr>
-                    </table>
-                    ';
-                }
-                $total++;
-            }
-        }
+        //         }
+        //         else {
+        //             $html.='
+        //             <table>
+        //                 <tr>
+        //                     <td>'. $d["nombre"] .'</td>
+        //                 </tr>
+        //             </table>
+        //             ';
+        //         }
+        //         $total++;
+        //     }
+        // }
         $html.='
     </tr>
 </table><!-- Fin de imagenes de articulos -->';
