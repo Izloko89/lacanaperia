@@ -919,14 +919,96 @@ foreach($articulos as $id=>$d){
     }
 }
 
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "postres";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_postres.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "panes";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_barra.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "tornaboda";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_torna.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "coctel";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <tr>
+                <td>'.$d["concept_name"].'</td>
+                <td></td>
+                <td>'.$total_coctel.'</td>
+            </tr>
+            ';
+            break;
+        }
+    }
+}
+
 $html.='
 </table>
-<div>'. $total_bienvenida .'</div>
-<div>'. $total_tiempos .'</div>
-<div>'. $total_postres .'</div>
-<div>'. $total_barra .'</div>
-<div>'. $total_torna .'</div>
-<div>'. $total_coctel .'</div>
 <br/>
     
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
