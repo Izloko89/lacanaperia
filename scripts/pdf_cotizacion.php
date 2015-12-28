@@ -983,11 +983,12 @@ foreach($articulos as $id=>$d){
 }
 
 $total_evento = $total_bienvenida + $total_tiempos + $total_postres + $total_barra + $total_torna + $total_coctel;
+$total_invi = $total_evento / $noIn;
 $html.='
     <tr>
         <td style="width:55%; text-align:center; font-weight:bold;">Total</td>
-        <td style="width:15%;"></td>
-        <td style="width:15%;">'.number_format($total_evento,2).'</td>
+        <td style="width:15%; text-align:right;">'.number_format($total_invi,2).'</td>
+        <td style="width:15%; text-align:right;">'.number_format($total_evento,2).'</td>
     </tr>
 </table>
 <br/>
