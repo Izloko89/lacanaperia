@@ -628,6 +628,23 @@ foreach($articulos as $id=>$d){
         }
     }
 }
+$html.='';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "panes";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];            
+        }
+    }
+}
+$total_barra = $total;
 $html.='<!-- Fin de barra -->
 
 <!-- Estacion tornaboda -->';
@@ -766,12 +783,53 @@ foreach($articulos as $id=>$d){
 $total_torna = $total;
 $html.='<!-- Fin de Estacion de tornaboda -->
 
+<!-- Barra de cocteles -->';
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "coctel";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $html.='
+            <!-- Texto -->
+            <div style="width:100%; padding:0 20px; text-align:justify;"><strong>'. $d["concept_name"].':</strong></div>
+            <br/>
+            <div style="width:100%; padding:0 20px; text-align:justify;">'. $d["descripcion"] .'</div>
+            ';
+            break;
+        }
+    }
+}
+$html.='';
+$total = 0;
+foreach($articulos as $id=>$d){
+    if (isset($d["id_concepto"])){
+        $concept_name = strtolower($d["concept_name"]);
+        $compara = "coctel";
+        $pos = strpos($concept_name,$compara);
+
+        if($pos === false) {
+        
+        }
+        else {
+            $total+=$d["total"];            
+        }
+    }
+}
+$total_coctel = $total;
+$html.='
+<!-- Fin de barra -->
+
 <table cellpadding="0" cellspacing="0" style=" font-size:12px;width:100%; margin-top:10px; padding:0 20px;">
     <tr>
         <td style="width:100%; text-align:left;"><strong>Cotización</strong></td>
     </tr>
     <tr>
-        <td style="width:100%; text-align:justify;">La siguiente cotización desglosa los servicios propuestos para tu evento contemplando 250 invitados:</td>
+        <td style="width:100%; text-align:justify;">La siguiente cotización desglosa los servicios propuestos para tu evento contemplando '. $noIn .' invitados:</td>
     </tr>        
 </table>
 
