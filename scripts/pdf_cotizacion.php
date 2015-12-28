@@ -859,7 +859,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_bienvenida,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_bienvenida.'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_bienvenida,2).'</td>
             </tr>
             ';
             break;
@@ -882,7 +882,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_tiempos,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_tiempos.'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_tiempos,2).'</td>
             </tr>
             ';
             break;
@@ -905,7 +905,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_postres,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_postres.'</td>
+                <td style="width:15%; text-align:right;">'.$number_format($total_postres,2).'</td>
             </tr>
             ';
             break;
@@ -928,7 +928,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_barra,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_barra.'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_barra,2).'</td>
             </tr>
             ';
             break;
@@ -951,7 +951,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_torna,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_torna.'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_torna,2).'</td>
             </tr>
             ';
             break;
@@ -974,7 +974,7 @@ foreach($articulos as $id=>$d){
             <tr>
                 <td style="width:55%;">'.$d["concept_name"].'</td>
                 <td style="width:15%; text-align:right;">'.number_format($invi_coctel,2).'</td>
-                <td style="width:15%; text-align:right;">'.$total_coctel.'</td>
+                <td style="width:15%; text-align:right;">'.number_format($total_coctel,2).'</td>
             </tr>
             ';
             break;
@@ -982,7 +982,13 @@ foreach($articulos as $id=>$d){
     }
 }
 
+$total_evento = $total_bienvenida + $total_tiempos + $total_postres + $total_barra + $total_torna + $total_coctel;
 $html.='
+    <tr>
+        <td style="width:55%; text-align:center; font-weight:bold;">Total</td>
+        <td style="width:15%;"></td>
+        <td style="width:15%;">'.number_format($total_evento,2).'</td>
+    </tr>
 </table>
 <br/>
     
