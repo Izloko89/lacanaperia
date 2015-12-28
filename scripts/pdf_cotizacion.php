@@ -872,9 +872,9 @@ $html.='
         <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
     </tr>
     <tr>
-        <th width="55%">Desgloce de Servicios</th>
-        <th width="15%">Precio por invitado</th>
-        <th width="15%">Precio Total</th>
+        <th style="width:55%;">Desgloce de Servicios</th>
+        <th style="width:15%;">Precio por invitado</th>
+        <th style="width:15%;">Precio Total</th>
     </tr>
 ';
 
@@ -891,9 +891,9 @@ foreach($articulos as $id=>$d){
             $invi_bienvenida = $total_bienvenida/$noIn;
             $html.='
             <tr>
-                <td>'.$d["concept_name"].'</td>
-                <td>'.number_format($invi_bienvenida,2).'</td>
-                <td>'.$total_bienvenida.'</td>
+                <td style="width:55%;">'.$d["concept_name"].'</td>
+                <td style="width:15%;">'.number_format($invi_bienvenida,2).'</td>
+                <td style="width:15%;">'.$total_bienvenida.'</td>
             </tr>
             ';
             break;
@@ -914,9 +914,9 @@ foreach($articulos as $id=>$d){
             $invi_tiempos = $total_tiempos/$noIn;
             $html.='
             <tr>
-                <td>'.$d["concept_name"].'</td>
-                <td>'.number_format($invi_tiempos,2).'</td>
-                <td>'.$total_tiempos.'</td>
+                <td style="width:55%;">'.$d["concept_name"].'</td>
+                <td style="width:15%;">'.number_format($invi_tiempos,2).'</td>
+                <td style="width:15%;">'.$total_tiempos.'</td>
             </tr>
             ';
             break;
