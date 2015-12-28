@@ -380,13 +380,13 @@ foreach($articulos as $id=>$d){
         }
         else {
             $total+=$d["total"];
-            $html.='
-            <div>'.$total.'</div>';
+            $html.='';
             
         }
     }
 }
 $html.='<!-- Fin Bienvenida de invitados -->
+<div>'.$total.'</div>
 
 <!-- Menú de 3 tiempos -->';
 foreach($articulos as $id=>$d){
