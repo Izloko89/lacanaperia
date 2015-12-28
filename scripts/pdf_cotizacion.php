@@ -889,7 +889,7 @@ foreach($articulos as $id=>$d){
         }
         else {
             $invi = 0;
-            $invi = $total_bienvenida/$noIn;
+            $invi = $noIn / $total_bienvenida;
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
