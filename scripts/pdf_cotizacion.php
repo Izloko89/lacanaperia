@@ -888,12 +888,10 @@ foreach($articulos as $id=>$d){
         
         }
         else {
-            $invi = 0;
-            $invi = $noIn / $total_bienvenida;
             $html.='
             <tr>
                 <td>'.$d["concept_name"].'</td>
-                <td>'.$invi.'</td>
+                <td>'.$total_bienvenida/$noIn.'</td>
                 <td>'.$total_bienvenida.'</td>
             </tr>
             ';
