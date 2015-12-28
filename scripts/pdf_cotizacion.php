@@ -381,7 +381,7 @@ foreach($articulos as $id=>$d){
         else {
             $total+=$d["total"];
             $html.='
-            <div>'.$d["total"].'</div>';
+            <div>'.$total.'</div>';
             
         }
     }
