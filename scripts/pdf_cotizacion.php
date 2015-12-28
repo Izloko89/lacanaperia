@@ -867,7 +867,10 @@ $html.='
     </tr>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0">
+<table align="center" border="0.3" cellspacing="0" cellpadding="0" style="width:100%;font-size:10px;margin-top:5px; padding:5 30px; text-align:center">
+    <tr>
+        <td colspan="3" style="background-color:#78343B; text-align:center; color:#FFF"><strong>Cotización del Evento</strong></td>
+    </tr>
     <tr>
         <td>Desgloce de Servicios</td>
         <td>Precio por invitado</td>
@@ -915,31 +918,7 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
-}
 
-// foreach($articulos as $id=>$d){
-//     if (isset($d["id_concepto"])){
-//         $concept_name = strtolower($d["concept_name"]);
-//         $compara = "tiempos";
-//         $pos = strpos($concept_name,$compara);
-
-//         if($pos === false) {
-        
-//         }
-//         else {
-//             $html.='
-//             <tr>
-//                 <td>'.$d["concept_name"].'</td>
-//                 <td></td>
-//                 <td>'.$total_tiempos.'</td>
-//             </tr>
-//             ';
-//             break;
-//         }
-//     }
-// }
-
-foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "postres";
@@ -959,9 +938,7 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
-}
 
-foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "panes";
@@ -981,9 +958,7 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
-}
 
-foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "tornaboda";
@@ -1003,9 +978,7 @@ foreach($articulos as $id=>$d){
             break;
         }
     }
-}
 
-foreach($articulos as $id=>$d){
     if (isset($d["id_concepto"])){
         $concept_name = strtolower($d["concept_name"]);
         $compara = "coctel";
