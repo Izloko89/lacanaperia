@@ -51,7 +51,7 @@ try{
 		
 		$sql = "select nombre, id_concepto from conceptos";
 		$bdcon = $bd->query($sql);
-		$elementos.='<td> <select id="'.$id.'" class="conceptos">';
+		$elementos.='<td> <select id="'.$id.'" class="conceptos" width="130" style="width: 130px">';
 		foreach($bdcon->fetchAll(PDO::FETCH_ASSOC) as $datos){
 			$idcon = $datos["id_concepto"];
 			$nombrecon = $datos["nombre"];
@@ -59,14 +59,14 @@ try{
 			
 		}
 
-		$elementos.='</select></td> <td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
+		$elementos.='</select></td> <td><input class="cantidad" type="text" size="3" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
 			<td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('.$id.');" value="'.$v["nombre"].'" /></td>
 			<td>'.$precios.'<span class="precio" >'.$v["precio"].'</span></td>
 			<td>$<span class="total">'.$v["total"].'</span></td>
 			<td><span class="guardar_articulo" onclick="guardar_art('.$id.')"></span><span class="eliminar_articulo" onclick="eliminar_art('.$id.')"></span></td>';
 		if(isset($imagen) && $imagen != ""){
 			$imagen = str_replace(" ","%20",$imagen);
-			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="130" height="100" alt=""> </td></tr>';
+			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="70" height="70" alt=""> </td></tr>';
 		}
 		$elementos.='</tr>';	
 		$id++;
@@ -107,7 +107,7 @@ try{
 			<td style="background-color:#FFF;"><input type="hidden" class="id_item" value="'.$v["id_item"].'" /><input type="hidden" class="id_cotizacion" value="'.$idCot.'" /><input type="hidden" class="id_articulo" value="" /><input type="hidden" class="id_paquete" value="'.$v["id_paquete"].'" /></td>';
 		$sql = "select nombre, id_concepto from conceptos";
 		$bdcon = $bd->query($sql);
-		$elementos.='<td> <select id="'.$id.'" class="conceptos">';
+		$elementos.='<td> <select id="'.$id.'" class="conceptos" width="20" style="width: 20px">';
 		foreach($bdcon->fetchAll(PDO::FETCH_ASSOC) as $datos){
 			$idcon = $datos["id_concepto"];
 			$nombrecon = $datos["nombre"];
@@ -121,7 +121,7 @@ try{
 
 		if(isset($imagen)){
 			$imagen = str_replace(" ","%20",$imagen);
-			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="130" height="100" alt=""> </td></tr>';
+			$elementos.='<td> <img src=img/articulos/'.$imagen.' width="70" height="70" alt=""> </td></tr>';
 		}else{
 			$elemetos.='</tr>';
 		}	

@@ -51,13 +51,13 @@ $(document).ready(function(e) {
 				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_cotizacion" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
 				$.each(r, function(i, item) {
    					if(id==1){
-   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
+   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos" width="130" style="width: 130px"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
     				}else{
   						idcon = $('.conceptos[id='+(id-1)+']').val();			
 
     					if(i == 0 ){  
     						if($.isNumeric(idcon)){
-    							columnas+='<td><select id='+id+' class="conceptos" style="display:none">'
+    							columnas+='<td><select id='+id+' class="conceptos" style="display:none" width="130" style="width: 130px">'
     						}else{columnas+='<td><select id='+id+' class="conceptos">'}
     					}
     					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
@@ -67,7 +67,7 @@ $(document).ready(function(e) {
 
     				}
 				});
-				columnas+='</select></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
+				columnas+='</select></td><td><input class="cantidad" type="text" size="3" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
 				$("#articulos").append(columnas);
 			$.each($(".lista_articulos"),function(i,v){
 				$(this).find(".id_cotizacion").val(id_cotizacion);
