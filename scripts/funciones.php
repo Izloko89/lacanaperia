@@ -17,14 +17,14 @@ function dispByDate($id_evento,$id_articulo,$dsnw, $userw, $passw, $optPDO){
 			$bd=new PDO($dsnw, $userw, $passw, $optPDO);
 			$sql="select al.cantidad as cantidad,al.cantidad - ea.cantidad  as resta from eventos ev 
 inner join eventos_articulos  ea on ev.id_evento = ea.id_evento
-inner join almacen al on al.id_articulo = ea.id_articulo
+inner join almacen_inventario al on al.id_articulo = ea.id_articulo
 where ev.id_evento = ".$id_evento." and NOW() between fechamontaje and fechadesmont;";
 		$query=$bd->query($sql);
 		$res = $query->fetch(PDO::FETCH_ASSOC);
 		$resta= $res["resta"];
 		
 		if(empty($resta)){
-			$sql="select cantidad from almacen where id_articulo = ".$id_articulo.";";
+			$sql="select cantidad from almacen_inventario where id_articulo = ".$id_articulo.";";
 			$query=$bd->query($sql);
 			$res = $query->fetch(PDO::FETCH_ASSOC);
 			$cantidad = $res["cantidad"];
