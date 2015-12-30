@@ -355,6 +355,7 @@ function art_autocompletar(id){
 		  total.parent().parent().removeClass("verde_ok");
 		  id_articulo.val(ui.item.id_articulo);
 		  id_paquete.val(ui.item.id_paquete);
+		  id_articulo.val(ui.item.id_articulo);
 			art = ui.item.id_articulo;
 			cot = $(".clave").val();
 		  precio.html(ui.item.precio);
