@@ -178,9 +178,10 @@ try{
 		</tr>
 
 	<?php if(count($paquetes)>0){
+		$cont=1;
 		foreach($paquetes as $art=>$d){
 		echo '<tr>';
-		echo '<td class="dbc" data-action="clave" style="cursor:pointer;">'.$d["id_paquete"].'</td>';
+		echo '<td class="dbc" value="'.$d["id_paquete"].'" data-action="clave" style="cursor:pointer;">'.$cont.'</td>';
 		echo '<td>'.$d["nombre"].'</td>';
 		echo	'<td class="eliminar_tevento" style="text-align:center;" onclick="eliminar_art(' . $cont . ',' . $d["id_paquete"] . ')"></td>';
 		echo '</tr>';
@@ -216,9 +217,9 @@ $(document).ready(function(e) {
 		}
     }); //termina buscador de cotizacion
     $(".dbc").dblclick(function(e) {
-    	console.log('evento');
 		accion=$(this).attr("data-action");
-		val=$(this).text();
+		val=$(this).attr('value');
+		console.log(val);
 		switch(accion){
 			case 'clave':
 				$(".clave").val(val);
