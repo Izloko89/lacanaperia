@@ -28,6 +28,7 @@ try{
 	$sqlPaq="SELECT 
 		paquetes.nombre as label,
 		paquetes.id_paquete,
+		paquetes.image,
 		precio1 as p1,
 		precio2 as p2,
 		precio3 as p3,

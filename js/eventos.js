@@ -59,7 +59,7 @@ $(".agregar_articulo").click(function(){
 
     				}
 				});
-				columnas+='</select></td><td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
+				columnas+='</select></td><td><input class="cantidad" type="text" size="3" onkeyup="cambiar_cant('+id+')" /></td><td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('+id+');" /></td><td>$<span class="precio"></span></td><td>$<span class="total"></span></td><td><span class="guardar_articulo" onclick="guardar_art('+id+')"></span><span class="eliminar_articulo" onclick="eliminar_art('+id+')"></span></td><td id="preview-img-'+id+'"></td></tr>';
 				$("#articulos").append(columnas);
 			$.each($(".lista_articulos"),function(i,v){
 				$(this).find(".id_evento").val(evento);

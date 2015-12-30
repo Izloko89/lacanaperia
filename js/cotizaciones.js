@@ -58,7 +58,7 @@ $(document).ready(function(e) {
     					if(i == 0 ){  
     						if($.isNumeric(idcon)){
     							columnas+='<td><select id='+id+' class="conceptos" style="display:none" width="130" style="width: 130px">'
-    						}else{columnas+='<td><select id='+id+' class="conceptos">'}
+    						}else{columnas+='<td><select id='+id+' class="conceptos"  width="130" style="width: 130px"> '}
     					}
     					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
     					
