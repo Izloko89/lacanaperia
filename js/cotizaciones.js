@@ -283,7 +283,7 @@ function art_autocompletar(id){
 			precio.html(ui.item.precio);
 			totalca=cantidad*ui.item.precio;
 			total.html(totalca);
-			$('#preview-img-'+id).empty().append('<img src="img/articulos/'+ui.item.image+'" width="130" height="100" />');
+			$('#preview-img-'+id).empty().append('<img src="img/articulos/'+ui.item.image+'" width="70" height="70" />');
 			// $.ajax({
 			// 	url:'scripts/busca_existencia.php',
 			// 	cache:false,

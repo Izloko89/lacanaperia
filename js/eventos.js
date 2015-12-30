@@ -359,7 +359,8 @@ function art_autocompletar(id){
 			cot = $(".clave").val();
 		  precio.html(ui.item.precio);
 		  totalca=cantidad*ui.item.precio;
-		  total.html(totalca);			
+		  total.html(totalca);	
+		  $('#preview-img-'+id).empty().append('<img src="img/articulos/'+ui.item.image+'" width="70" height="70" />');		
 		  $.ajax({
 				url:'scripts/busca_existenciaEve.php',
 				cache:false,

@@ -113,7 +113,7 @@ try{
 			$nombrecon = $datos["nombre"];
 				($v["id_concepto"]==$idcon) ? $elementos.='<option value="$idcon" selected="selected">'.$nombrecon.'</option>' : $elementos.='<option value="$idcon">'.$nombrecon.'</option>';
 		}			
-		$elementos.='<td><input class="cantidad" type="text" size="7" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
+		$elementos.='<td><input class="cantidad" type="text" size="3" onkeyup="cambiar_cant('.$id.');" value="'.$v["cantidad"].'" /></td>
 			<td><input class="articulo_nombre text_full_width" onkeyup="art_autocompletar('.$id.');" value="'.$v["nombre"].'" /></td>
 			<td>'.$precios.'<span class="precio" >'.$v["precio"].'</span></td>
 			<td>$<span class="total">'.$v["total"].'</span></td>
