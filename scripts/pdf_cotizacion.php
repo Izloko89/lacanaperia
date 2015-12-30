@@ -448,6 +448,11 @@ $html.='
                         <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;">
                             <tr>
                                 <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
+                                (isset($d["image"]) && $d["image"] != "" ) ?
+                                    $html.='
+                                    <td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td>
+                                    ' : $html.='<td></td>';
+                                    
                     }
                     $total++;
                 }

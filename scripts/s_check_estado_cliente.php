@@ -30,7 +30,7 @@ try{
 		($d["plazo"]=="anticipo") ? $tabla.='<td>'.$d["total"] .'</td>' :  $tabla.='<td>'.$restante-$d["cantidad"] .'</td>' ;
 		$tabla.='<td>'.$d["cantidad"] .'</td>';
 		$restante=$d["total"]-$d["cantidad"];
-		$tabla.='<td>'.$restante .'</td> </tr>';
+		$tabla.='<td>'.$restante .'</td>';
 	}
 
 	//$tabla.='<td>'.$total.'</td>';
