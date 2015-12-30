@@ -5,7 +5,13 @@ $eve=$_SESSION["id_empresa"]."_".$_POST["eve"];
 $monto=$_POST["monto"];
 $fecha=$_POST["fecha"];
 $cliente=$_POST["cliente"];
-$banco = $_POST['banco'];
+if(isset($_POST['banco'])){
+
+    if(empty($_POST['banco'])){
+      $banco = '0';
+    }      
+    else $banco = $_POST['banco'];
+}
 
 try{
 	$sql="INSERT INTO eventos_pagos (id_evento,id_cliente,plazo,fecha,cantidad,id_banco)

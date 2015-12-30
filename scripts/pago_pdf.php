@@ -11,6 +11,8 @@ if(isset($_GET["idPagoPdf"])){
 $idEve = 0;
 if(isset($_GET["idEve"])){
 	$idEve=$_GET["idEve"];
+	$idEve= explode('_', $idEve);
+	$idEve = $idEve[1];
 }
 $cosas = "";
 //funciones para convertir px->mm
@@ -42,8 +44,8 @@ try{
 
 try{
 	//id_evento id_cliente plazo fecha cantidad
-	$sql="SELECT eventos_pagos.id_pago, clientes.nombre as cliente, eventos.nombre as evento, eventos_pagos.plazo, eventos_pagos.fecha, eventos_pagos.cantidad, eventos_pagos.modo_pago, bancos.nombre as banco FROM eventos_pagos
-	INNER JOIN eventos ON eventos_pagos.id_evento = '$idEve'
+	$sql="SELECT eventos_pagos.id_pago, clientes.nombre as cliente, eventos.nombre as evento, eventos_pagos.plazo, eventos_pagos.fecha, eventos_pagos.cantidad, eventos_pagos.modo_pago, bancos.nombre as banco,eventos_pagos.modo_pago, eventos.fecha as evento_fecha, eventos.direvento FROM eventos_pagos
+	INNER JOIN eventos ON $idEve = eventos.id_evento
 	INNER JOIN clientes ON eventos_pagos.id_cliente = clientes.id_cliente
 	INNER JOIN bancos ON eventos_pagos.id_banco = bancos.id_banco
 	WHERE eventos_pagos.id_pago=$id;";
@@ -51,8 +53,8 @@ try{
 	$cosas=$res->fetchAll(PDO::FETCH_ASSOC);
 	if(count($cosas) < 1)
 	{
-		$sql1="SELECT eventos_pagos.id_pago, clientes.nombre as cliente, eventos.nombre as evento, eventos_pagos.plazo, eventos_pagos.fecha, eventos_pagos.cantidad, eventos_pagos.modo_pago FROM eventos_pagos
-		INNER JOIN eventos ON eventos_pagos.id_evento = '$idEve'
+		$sql1="SELECT eventos_pagos.id_pago, clientes.nombre as cliente, eventos.nombre as evento, eventos_pagos.plazo, eventos_pagos.fecha, eventos_pagos.cantidad, eventos_pagos.modo_pago, eventos.fecha as evento_fecha, eventos.direvento  FROM eventos_pagos
+		INNER JOIN eventos ON $idEve = eventos.id_evento
 		INNER JOIN clientes ON eventos_pagos.id_cliente = clientes.id_cliente
 		WHERE eventos_pagos.id_pago=$id;";
 		$res=$bd->query($sql1);
@@ -96,11 +98,8 @@ h1{
 
 <table style="width:100%;" cellpadding="0" cellspacing="0" >
     <tr>		 
-      <td style="width:30%; text-align:left;">
-       	   <p style="width:100%; padding:4px; margin:0; font-size:7px; text-align:center;">Tel / Fax: (33) 3642-0913 3642-0904<br/>
-            eulogio parra #2714<br/>
-            colonia providencia, Guadalajara. Jal.<br/>
-           www.bariconcept.net</p>
+      <td style="width:20%; text-align:left;">
+       	   <img src="../img/dire.jpg" width="100" height="100" >
             
          </td>
          <td style="width:55%; text-align:center;"><img src="../img/logo.png" width="76%" height="60" /></td>
@@ -120,9 +119,9 @@ h1{
         </tr><tr>
             <td height="10" style="width:100%; margin-left:5px; border-bottom:0.5px solid #000;"><strong>• Nombre</strong> &nbsp; <?php echo $cosas[0]["cliente"];?></td>            
         </tr><tr>
-            <td height="10" style="width:100%; margin-left:5px; border-bottom:0.5px solid #000;"><strong>• Dirección</strong> &nbsp; <?php echo 'domicilio'; ?></td>
+            <td height="10" style="width:100%; margin-left:5px; border-bottom:0.5px solid #000;"><strong>• Dirección</strong> &nbsp; <?php echo $cosas[0]["direvento"]; ?></td>
             </tr><tr>
-            <td height="10" style="width:100%; "><strong>• Fecha del evento</strong> &nbsp; <?php echo 'fechaEvento'; ?></td>
+            <td height="10" style="width:100%; "><strong>• Fecha del evento</strong> &nbsp; <?php echo $cosas[0]["evento_fecha"]; ?></td>
         </tr>
     </table>
 </td>
