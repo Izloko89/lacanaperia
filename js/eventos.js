@@ -43,14 +43,14 @@ $(".agregar_articulo").click(function(){
 				columnas+='<tr id="'+id+'" class="lista_articulos"><td style="background-color:#FFF;"><input type="hidden" class="id_item" value="" /><input type="hidden" class="id_evento" value="" /><input type="hidden" class="id_articulo" /><input type="hidden" class="id_paquete" /></td>';
 				$.each(r, function(i, item) {
    					if(id==1){
-   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
+   						i == 0 ? columnas+='<td><select id='+id+' class="conceptos" width="130" style="width: 130px"> <option value="'+item.id+'">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option>';
     				}else{
   						idcon = $('.conceptos[id='+(id-1)+']').val();			
 
     					if(i == 0 ){  
     						if($.isNumeric(idcon)){
-    							columnas+='<td><select id='+id+' class="conceptos" style="display:none">'
-    						}else{columnas+='<td><select id='+id+' class="conceptos">'}
+    							columnas+='<td><select id='+id+' class="conceptos" style="display:none" width="130" style="width: 130px">'
+    						}else{columnas+='<td><select id='+id+' class="conceptos" width="130" style="width: 130px"> '}
     					}
     					idcon==item.id ?  columnas+='<option value="'+item.id+'" selected="selected">'+item.nombre+'</option>' : columnas+='<option value="'+item.id+'">'+item.nombre+'</option> ';
     					
