@@ -297,7 +297,7 @@ table{
 			});
 		});
 		</script>
-        <div class="campo_form">
+ <!--        <div class="campo_form">
             <label class="">Deposito en Garantia</label>
 			<select id="cant" onchange="deposito();">
 				<option value=".00">0%</option>
@@ -321,9 +321,10 @@ table{
             <label class="" id="glabel">Monto</label>
 			<input type="text" class=" numerico" id="gtotal" />
         </div>
+        -->
         <div class="campo_form">
             <label class="">Metodo de pago</label>
-            <select class="metodo">
+            <select class="metodo" >
             	<option value="Efectivo">Efectivo</option>
                 <option value="cheque">Cheque</option>
                 <option value="transferencia">Transferencia</option>
@@ -334,7 +335,7 @@ table{
                 <label class="">Plazos:</label>
                 <input type="text" class="plazos numerico" size="4" value="1" />
             </div>
-            <div class="divbancos">
+            <div class="divbancos" style="display:none">
                 <label class="">Bancos:</label>
 				<?php 
 					$bd=new PDO($dsnw,$userw,$passw,$optPDO);
@@ -352,7 +353,7 @@ table{
 				?>
 				</select>
             </div>
-        </div>
+        </div> 
         <div class="campo_form">
             <label class="">Total de Evento</label>
 			<input type="text" id="total" class="totaleventof numerico" readonly="readonly" />

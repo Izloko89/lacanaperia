@@ -284,21 +284,21 @@ function art_autocompletar(id){
 			totalca=cantidad*ui.item.precio;
 			total.html(totalca);
 			$('#preview-img-'+id).empty().append('<img src="img/articulos/'+ui.item.image+'" width="130" height="100" />');
-			$.ajax({
-				url:'scripts/busca_existencia.php',
-				cache:false,
-				async:false,
-				data:{
-					'art':art,
-					'cot':cot,
-					'cant':cantidad
-				},
-				success: function(r){
-					if(r){
-						alerta("info", r);
-					}
-				}
-			});
+			// $.ajax({
+			// 	url:'scripts/busca_existencia.php',
+			// 	cache:false,
+			// 	async:false,
+			// 	data:{
+			// 		'art':art,
+			// 		'cot':cot,
+			// 		'cant':cantidad
+			// 	},
+			// 	success: function(r){
+			// 		if(r){
+			// 			alerta("info", r);
+			// 		}
+			// 	}
+			// });
 	  }
 	});
 }
