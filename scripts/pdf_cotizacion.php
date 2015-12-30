@@ -450,7 +450,7 @@ $html.='
                                 <td width="278" style="text-align:center; font-size:10px;">'. $d["nombre"].'</td>';
                                 (isset($d["image"]) && $d["image"] != "" ) ?
                                     $html.='
-                                    <tr><td><img src="../img/articulos/'. $d["image"].'" width="170" height="130" /></td></tr>
+                                    <img src="../img/articulos/'. $d["image"].'" width="170" height="130" />
                                     ' : $html.='<td></td>';
                                     
                     }
